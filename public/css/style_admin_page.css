@@ -1,0 +1,29 @@
+#content-container{
+	margin-top:50px;
+
+}
+
+.a_drop:hover {
+	color:#000;
+}
+.face_btn_:hover>.username{
+color:#000;
+
+}
+.a_drop{
+color:#fff}
+
+
+
+
+
+.owl-carousel--item{
+
+	border-right:1px solid #000;
+padding:10px;
+text-align:center;
+}
+.owl-carousel .owl-stage-outer{
+
+	top:10px;
+}

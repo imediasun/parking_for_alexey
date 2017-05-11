@@ -1,0 +1,362 @@
+#content-container{
+	margin-top:50px;
+padding-left: 350px;
+}
+.good_container{
+	height:110px;
+}
+.good_cont:hover{
+	border:1px solid #000;
+	cursor:pointer;
+}
+.good_container img{
+
+}
+.a_drop:hover {
+	color:#000;
+}
+.face_btn_:hover>.username{
+color:#000;
+
+}
+.a_drop{
+
+color:#fff}
+#page-content{
+padding-left:380px;
+
+}
+.nano-content{
+margin-top:40px;
+
+}
+.fa_star_{
+	display:inline-block;
+	color:#FF9800;
+	float:right;
+}
+.vertical_text{
+-moz-transform: rotate(180deg);
+
+	    -webkit-transform: rotate(180deg);
+
+	    -o-transform: rotate(180deg);
+
+	    writing-mode: tb-rl;
+	
+}
+.panel-body{
+	height:300px;
+}
+.mar-hor{
+margin-left:0px;
+
+}
+.articul{margin-top:-40px;}
+
+.owl-carousel--item{
+
+	border-right:1px solid #000;
+padding:10px;
+text-align:center;
+}
+.owl-carousel .owl-stage-outer{
+
+	top:10px;
+	
+}
+.owl-carousel{width:79%;margin:0 auto;}
+.cont_logo{
+
+	position:absolute;
+	top:30px;
+	left:0px;
+}
+.navbar-top-links > li > a
+{
+	margin-top:40px;
+	height:10px;
+}
+.username{
+height:20px;
+line-height:20px; 
+}
+.pageheader h3, .vertical_text{
+	color: #CBC7C7;
+	font-size:18px;
+}
+
+.pageheader .fa, .pageheader .glyphicon {
+
+    border: 2px solid #CBC7C7;
+
+}
+.btn-social-icon{
+width:24px;
+height:24px;
+margin-top:7px;
+}
+.btn-social-icon > :first-child {
+
+    width: 24px;
+    line-height: 24px;
+    font-size: 1.0em;
+
+}
+#mainnav-menu > li:hover, #mainnav-menu_2 > li:hover {
+border-bottom:1px solid #fff;
+}
+#mainnav {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#002e6a+0,ededed+100 */
+background: #002e6a; /* Old browsers */
+background: -moz-linear-gradient(left,  #002e6a 0%, #ededed 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #002e6a 0%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #002e6a 0%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002e6a', endColorstr='#ededed',GradientType=1 ); /* IE6-9 */
+}
+
+.col-md-2{left:-80px;}
+#SkypeButton_Call_imediasun_1{
+color:#fff;
+z-index:9999;
+position:relative;
+display:inline-block;
+left:200px;
+top:-65px;
+float:right;
+
+}
+.search_{
+width:50%;margin:0 auto;
+}
+.brand-text_min{
+	font-size:19px;
+}
+.we_in_social {
+	position:relative;
+color:#fff;
+	width:400px;
+	top:25px;
+}
+
+@media screen and (min-width: 1024px) {
+.we_in_social{
+	position:relative;
+	left:-100px;}
+#container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title{
+		width:300px;
+	}
+	.good_cont{
+
+	}
+	#mainnav-container{width:260px;}
+	.brand-text{font-size:24px;}
+	.brand-text_min{font-size:15px;}
+	.col-md-2{min-width:151px;margin-left:-23px;}
+	.articul{margin-top:2px;font-size:8px;}
+	.col-md-1{position:relative;left:-75px;}
+	.row > .col-md-2:nth-child(2){
+		margin-left:-30px;
+	}
+	.menu-title{font-size:13px;}
+		.name_good{font-size:8px;
+		position:relative;
+left:-12px;
+	}
+	.good_container h5{font-size:9px;}
+.owl-carousel{width:57%;left:-330px;}
+.username{font-size:10px;}
+.navbar-top-links > li > a{
+	padding:0 2px;
+}
+#SkypeButton_Call_imediasun_1{
+	position:relative;
+		left:100px;
+		top:-55px;
+	}
+	.search_{
+
+		left:-150px;
+	}
+.left_panel_{
+
+position: relative;
+width: 300px;
+-webkit-flex-basis: 53%;
+max-width: 50%;
+	}
+.right_panel_{
+
+position: relative;
+
+-webkit-flex-basis: 53%;
+max-width: 50%;
+float:left;
+	}
+	.complex_block{
+		margin-left:-100px;
+	}
+	.adv_panel{display:none;}
+	.name_of_good{
+font-size:18px;
+
+	}
+	.fa-star{
+		position:absolute;
+		right:0px;
+		top:0px;
+	}
+.head_of_right_panel{
+	width:100%;
+	flex-basis: 100%;
+max-width: 100%;
+}
+.up_count{left:72px;top:-7px;}
+.cart_btn{left:20px;}
+}
+
+@media screen and (min-width: 1280px) {
+	.we_in_social{left:5px;}
+	#container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title{
+		width:380px;
+	}
+	#mainnav-container{width:320px;}
+	.brand-text{font-size:30px;}
+	.brand-text_min{font-size:19px;}
+	.col-md-2{min-width:186px;margin-left:-20px;}
+	.articul{margin-top:2px;font-size:12px;}
+	.good_container h5{font-size:11px;}
+	.menu-title{font-size:17px;}
+	.col-md-1{position:relative;left:-15px;}
+	.row > .col-md-2:nth-child(2){
+		margin-left:20px;
+	}
+	.price {left:-10;position:relative;}
+	.fa_star_{top:-35px;position:relative;}
+		.name_good{font-size:10px;
+		position:relative;
+left:-12px;
+	}
+.owl-carousel{width:59%;left:-220px;}
+#SkypeButton_Call_imediasun_1{
+	position:relative;
+		left:270px;
+	}
+.left_panel_{
+
+position: relative;
+width: 300px;
+-webkit-flex-basis: 45%;
+max-width: 45%;
+	}
+.right_panel_{
+
+position: relative;
+
+-webkit-flex-basis: 45%;
+max-width: 45%;
+float:left;
+	}
+	.complex_block{
+		margin-left:-10px;
+	}
+}
+@media screen and (min-width: 1366px) {
+	.search_{left:-100px;}
+	.owl-carousel{width:59%;left:-210px;}
+	.col-md-2{min-width:200px;margin-left:-20px;}
+	.articul{margin-top:2px;}
+	.col-md-1{margin-left:-40px;}
+	.row > .col-md-2:nth-child(2){
+		margin-left:20px;
+	}
+
+	#SkypeButton_Call_imediasun_1{
+		left:150px;
+	}
+	.name_good{font-size:9px;
+		position:relative;
+left:-12px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+.owl-carousel{width:79%;left:-100px;}
+.left_panel_{
+
+position: relative;
+width: 300px;
+-webkit-flex-basis: 35%;
+max-width: 35%;
+	}
+.right_panel_{
+
+position: relative;
+
+-webkit-flex-basis: 35%;
+max-width: 35%;
+float:left;
+}
+.complex_block{
+		margin-left:-50px;
+}
+.adv_panel{display:block;
+-webkit-flex-basis: 22%;
+max-width: 22%;
+left:-50px;
+}
+}
+
+@media screen and (min-width: 1920px) {
+	.we_in_social{left:20px;}
+#container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title{
+		width:385px;
+	}
+	#mainnav-container{width:340px;}
+	.brand-text{font-size:32px;}
+	.brand-text_min{font-size:19px;}
+	.col-md-2{min-width:142px;margin-left:-20px;}
+	.articul{margin-top:2px;}
+	.col-md-1{position:relative;left:5px;}
+	.row > .col-md-2:nth-child(2){
+		margin-left:0px;
+	}
+	.name_good{font-size:12px;
+		position:relative;
+left:-12px;
+	}
+.owl-carousel{width:79%;left:-100px;}
+.username{font-size:10px;}
+.navbar-top-links > li > a{
+	padding:0 2px;
+}
+#SkypeButton_Call_imediasun_1{
+	position:relative;
+		left:390px;
+		top:-55px;
+	}
+	.left_panel_{
+
+position: relative;
+width: 300px;
+-webkit-flex-basis: 33%;
+max-width: 33%;
+	}
+.right_panel_{
+
+position: relative;
+
+-webkit-flex-basis: 33%;
+max-width: 33%;
+float:left;
+}
+.complex_block{
+		margin-left:-40px;
+}
+.adv_panel{display:block;
+-webkit-flex-basis: 22%;
+max-width: 22%;
+left:-50px;
+}
+
+}

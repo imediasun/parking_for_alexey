@@ -1,0 +1,345 @@
+
+@import "http://webfonts.ru/import/cleanvertising.css";
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+header, nav, section, article, aside, footer {
+    display: block;
+}
+body {
+    /* font: 18px/23px Times New Roman, Times, serif; */
+    height: 100%;
+    width:100%;
+
+    overflow:auto;
+}
+
+a {
+    color:#0096d3;
+    outline: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+p {
+    margin: 0 0 0px
+}
+img {
+    border: none;
+}
+input {
+    vertical-align: middle;
+}
+.stripe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url(/img/pattern-stripe.png) repeat;
+    z-index:1;
+}
+.stripe_ofset{
+
+    background:url(/img/ofset_png.png) repeat;
+
+}
+#wrapper {
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin:0 auto;
+}
+#close_btn{
+    position:absolute;
+    width:40px;
+    height:40px;
+    background:rgb(204,0,65);
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    left:10px;
+    top:10px;
+}
+#close_btn h3{
+    margin-top:-3px;
+}
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+    height: auto;
+
+    position:fixed;
+    z-index:999;
+    top:0px;
+}
+
+#footer {
+    margin: 0px auto 0;
+    width: auto;
+    height: 800px;
+    position: relative;
+    display:none;
+
+}
+#contacts{
+    position:absolute;
+    top:37%;
+    left:10%;
+    width:1000px;
+    height:1000px;
+    z-index:99999;
+}
+#phone{
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:410px;
+    height:50px;
+    padding:10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align:center;
+    z-index:999;
+}
+#black_back{
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index:9998;
+    background:rgba(0,0,0,0.7);
+}
+.phone{
+    font-family: Nautilus Pompilius;
+    font-size:300%;
+    color:#fff;
+    text-shadow: 1px 1px 2px black;
+}
+.contact_icon{
+    display:inline-block;
+    position:relative;
+    cursor:pointer;
+
+}
+#invisible{
+    display:none;
+}
+#vertical_line{
+    position:absolute;
+    width:16px;
+    height:85%;
+    background:url(/img/vertical_line.png);
+    background-size:cover;
+    top:7%;
+    left:37%;
+}
+#mail_icon{
+    width:125px;
+    height:211px;
+    background:url(/img/mail.png);
+    background-size:cover;
+}
+#contract_icon{
+    top:0px;
+    width:175px;
+    height:211px;
+    background:url(/img/register2.png);
+    background-size:cover;
+}
+#map_icon{
+
+    width:125px;
+    height:211px;
+    background:url(/img/contacts.png);
+    background-size:cover;
+}
+#social{
+    top:15px;
+    left:50%;
+    position:absolute;
+    z-index:999;
+}
+#facebook{
+    position:relative;
+    display:inline-block;
+    width:75px;
+    height:75px;
+    background:url(/img/facebook-icon.png)no-repeat;
+    cursor:pointer;
+}
+#skype{
+    position:relative;
+    display:inline-block;
+    width:75px;
+    height:75px;
+    background:url(/img/skype-icon.png)no-repeat;
+    cursor:pointer;
+}
+#google{
+    position:relative;
+    display:inline-block;
+    width:75px;
+    height:75px;
+    background:url(/img/google-plus.png)no-repeat;
+    cursor:pointer;
+}
+#youtube{
+    position:relative;
+    display:inline-block;
+    width:75px;
+    height:75px;
+    background:url(/img/youtube-icon.png)no-repeat;
+    cursor:pointer;
+}
+#contacts_block{
+    position:absolute;
+    z-index:9999;
+    width:70%;
+    height:70%;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto 7%;
+    box-shadow:0 1px 10px #000, inset 0 0px 0px 1px #eee;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:8px #666 solid;
+    background:url('/img/supr_back.png') repeat;
+}
+#form_block{
+    display:none;
+    position:absolute;
+    width:50%;
+    height:1%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:3px #fff solid;
+    right:5%;
+    top:5%;
+    background:rgba(255,255,255,0.6);
+}
+.logo_l{
+    width:250px;
+    left:45%;
+    position:absolute;
+    top:100px;
+}
+#content{
+
+}
+#bezier{
+    background:none;
+    position:absolute;
+    left:33%;
+    width:33%;
+    top:380px;
+}
+@media screen and (max-width: 1024px) {
+
+
+}
+@media screen and (max-width: 1600px) {
+
+    #mail_icon{
+
+        width:88px;
+        height:148px;
+
+    }
+    #contract_icon{
+
+        width:128px;
+        height:148px;
+
+    }
+    #map_icon{
+
+        width:88px;
+        height:148px;
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table_photo{
+    display:inline-block;float:left;
+    height:130px;background:#fff;
+
+}
+
+
+.table_address{
+    color: #9c9c9c;border-color: #b7b7b7;font: normal normal bold 0.5em/1.2 sans-serif;text-shadow: 0 1px #fff;
+    float:left;display:inline-block;height:130px;
+    background:#fff;border: 1px solid #CCC
+
+}
+.table_busy{
+    display:inline-block;float:left;border: 1px solid #CCC
+
+}
+.line_head_yellow
+{
+
+    position:relative;float:left;display:inline-block;height:30px;background:#ee9;border: 1px solid #CCC
+}
+.busy:hover{
+    height:150px;
+    margin-top:-10px;
+    width:30px;
+    background:rgb(248,193,0);
+}
+.busy
+{
+
+    position:relative;float:left;display:inline-block;height:130px;background:rgb(0,255,0);border: 1px solid #CCC
+}
+
+.table_head{
+
+    float:left;
+
+    height:50px;
+    background:#eee;
+    border: 1px solid #CCC;
+}
+.line_head{
+    height:10px;background:#ee9;border: 1px solid #CCC;
+
+}
+.line_head_red{
+
+    height:30px;background:rgb(204,0,65);border: 1px solid #CCC;
+}
+.line_head_red_thin{
+
+    height:10px;background:rgb(204,0,65);border: 1px solid #CCC;
+}
+.table_text{
+
+    color: #9c9c9c;border-color: #b7b7b7;font: normal normal bold 1.2em/1.8 sans-serif;text-shadow: 0 1px #fff;
+}
+.table_text_monthe{
+
+    position:relative;top:-5px;color: #9c9c9c;border-color: #b7b7b7;font: normal normal bold 1.2em/1.8 sans-serif;text-shadow: 0 1px #fff;
+}

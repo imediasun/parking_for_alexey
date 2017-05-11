@@ -1,0 +1,7 @@
+<link href="https://dl.dropboxusercontent.com/u/1499732/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="https://dl.dropboxusercontent.com/u/1499732/flexbox-grid/flexboxgrid.min.css" rel="stylesheet">
+    <link href="/css/logoslider.css" rel="stylesheet">
+    <link href="/css/style_admin_page.css" rel="stylesheet">
+    <link href="/css/bootstrap-social.css" rel="stylesheet">
+    <script src="https://dl.dropboxusercontent.com/u/1499732/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.damnuploader.js"></script>
