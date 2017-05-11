@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
             [
                 'parent_id' => 3,
                 'name' => 'Добавить торговый центр',
-                'icon'=> 'fa-envelope','link'=> '/admin/add_trade_canter'
+                'icon'=> 'fa-envelope','link'=> '/admin/add_trade_center'
             ],
             
             [

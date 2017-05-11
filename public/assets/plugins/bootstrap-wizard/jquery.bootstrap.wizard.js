@@ -59,8 +59,11 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.next = function(e) {
+
+		alert('next')
 		// If we clicked the last then dont activate this
 		if(element.hasClass('last')) {
+
 			return false;
 		}
 
@@ -114,6 +117,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.last = function(e) {
+		alert('last')
 		if($settings.onLast && typeof $settings.onLast === 'function' && $settings.onLast($activeTab, $navigation, obj.lastIndex())===false){
 			return false;
 		}
@@ -128,6 +132,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.finish = function (e) {
+		alert('finish')
 	  if ($settings.onFinish && typeof $settings.onFinish === 'function') {
 	    $settings.onFinish($activeTab, $navigation, obj.lastIndex());
 	  }
@@ -321,7 +326,7 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
-  onFinish:         null,
+  onFinish:         true,
   onBack:           null,
 	onTabChange:      null,
 	onTabClick:       null,

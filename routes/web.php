@@ -56,6 +56,10 @@ Route::get('/logout',['uses' => 'Admin\IndexController@index','as' => 'adminInde
 
 //admin
 Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
+
+    Route::get('/add_trade_center','Admin\TradeCenterController@index');
+
+    Route::get('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
        //admin
     Route::get('/super_admin','Admin\SuperAdminIndexController@index')->name('super_admin');
     Route::get('/shop_admin','Admin\ShopAdminIndexController@index')->name('shop_admin');
@@ -63,7 +67,7 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
     Route::get('/',['uses' => 'Admin\IndexController@index','as' => 'adminIndex']);
     Route::post('/func_update_role', 'FunctionsController@role');
     Route::post('/func_delete_user', 'FunctionsController@delete_user');
-    Route::resource('/add_good','Admin\GoodsController');
+
     Route::get('/add_logos','Admin\PertnersController@add_logos');
     Route::get('/del_logos','Admin\PertnersController@del_logos');
     Route::get('/categories','Admin\CategoriesController@index');
