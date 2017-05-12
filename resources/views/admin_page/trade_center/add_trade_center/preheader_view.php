@@ -45,6 +45,8 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/modernizr.min.js"></script>
 
 </head>

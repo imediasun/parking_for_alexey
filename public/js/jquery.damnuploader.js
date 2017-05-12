@@ -186,8 +186,7 @@
 
             /* private items-adding method */
             self._damnUploaderFilesAddMap = function(files, callback) {
-			
-			
+
                 var callbackDefined = $.isFunction(callback);
                 if (!$.support.fileSelecting) {
                     if (self._damnUploaderItemsCount === set.limit) {
@@ -266,6 +265,7 @@
                                     item.onComplete.call(item, false, null, 0);
                                 }
                             } else {
+                                
                                 if ($.isFunction(item.onProgress)) {
                                     item.onProgress.call(item, 100);
                                 }
@@ -288,30 +288,15 @@
                 if ($.support.fileSending) {
 
                  var cnt=count(queue);
-                 if(cnt >1){
-                    if (confirm("Загрузить фотографию?")) {
-                       if (confirm("Фото загружено, загрузить следующую?")) {
-                       alert("OK");
-                       } else {
-                       alert("Вы нажали кнопку отмена")
-                       }
-                        /*alert('item_file'+item.file)*/
-                        // W3C (Chrome, Safari, Firefox 4+)
-                        var formData = new FormData();
-                        formData.append((item.fieldName || 'file'), item.file);
-                        xhr.send(formData);
 
-                    } else {
-                        alert("Вы нажали кнопку отмена")
-                    }
-                 }
-                    else{
                      var formData = new FormData();
-                     formData.append((item.fieldName || 'file'), item.file);
+
+                    formData.append((item.fieldName || 'file'), item.file);
+
                      xhr.send(formData);
 
 
-                 }
+
                 } else if ($.support.fileReading && xhr.sendAsBinary) {
                     // firefox < 4
                     var boundary = "xxxxxxxxx";
@@ -425,25 +410,38 @@
                     self._damnUploaderFakeForm.submit();
                     return self;
                 }
+                var i =0;
+                var complete_one = false;
                 $.each(queue, function(queueId, item) {
+
                     var compl = item.onComplete;
+
                     item.fieldName = item.fieldName || set.fieldName;
-                    item.onComplete = function(successful, data, error) {
+                    item.onComplete = function (successful, data, error) {
+
+
                         if (!this.cancelled) {
                             delete queue[queueId];
                             self._damnUploaderItemsCount--;
                         }
                         if ($.isFunction(compl)) {
                             compl.call(this, successful, data, error);
-							// alert(self._damnUploaderSettings.onAllComplete);
+                            //alert(self._damnUploaderSettings.onAllComplete);
+
+
                         }
                         if ((self._damnUploaderItemsCount == 0) && ($.isFunction(set.onAllComplete))) {
-						    set.onAllComplete.call(self,data);
+                            set.onAllComplete.call(self, data);
 
-						}
+                        }
+
+                      
+
                     };
-                    self._damnUploaderUploadItem(set.url, item);
+
+					self._damnUploaderUploadItem(set.url, item);
                 });
+
                 break;
 
 
@@ -451,6 +449,11 @@
                 return self._damnUploaderItemsCount;
                 break;
 
+
+            case 'clear':
+                self._damnUploaderQueue = {};
+                queue = self._damnUploaderQueue;
+                return queue;
 
             case 'cancelAll':
                 if (!$.support.fileSelecting) {

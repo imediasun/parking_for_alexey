@@ -66,8 +66,6 @@
     var resizefunc = [];
 </script>
 
-<!-- jQuery  -->
-<script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/detect.js"></script>
 <script src="/assets/js/fastclick.js"></script>
@@ -84,6 +82,8 @@
 <!-- App js -->
 <script src="/assets/js/jquery.core.js"></script>
 <script src="/assets/js/jquery.app.js"></script>
+
+<script type="text/javascript" src="/js/jquery.damnuploader.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {

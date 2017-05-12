@@ -61,7 +61,7 @@
 
                                         <h4 class="header-title m-t-0 m-b-30">Basic Wizard</h4>
 
-                                        <form >
+                                        <form id="add_center" action="/admin/add_center" method="post">
                                             <div id="basicwizard" class=" pull-in">
                                                 <ul class="nav nav-tabs navtab-wizard nav-justified bg-muted">
                                                     <li class=""><a href="#tab1" data-toggle="tab" aria-expanded="false">TC Information</a></li>
@@ -110,6 +110,7 @@
 
 
                                                             <div class="col-lg-12">
+
                                                                 <div id="appl_window1">
 
                                                                     <div id="close_window1" class="del_prod_btn"></div>
@@ -233,6 +234,7 @@
                                                                             // если обработчик возвращает true, файлы добавляются в очередь автоматически
                                                                             onSelect: function(file) {
                                                                                 viewFile(file);
+                                                                                window.allcomplete=null;
                                                                                 return false;
                                                                             },
 
@@ -240,6 +242,7 @@
                                                                             onAllComplete: function() {
 
                                                                                 log('<span style="color: blue;">*** Все загрузки завершены! ***</span>');
+
                                                                                 imgCount = 0;
                                                                                 imgSize = 0;
                                                                                 updateInfo();
@@ -447,6 +450,8 @@
                                                                                 });
                                                                                 fileInput.damnUploader('startUpload');
                                                                             } else if (nums_iter == count) {
+                                                                                window.allcomplete=1;
+
                                                                                 log('<span style="color: white;">*** Все загрузки завершены! ***</span>');
                                                                                 imgCount = 0;
                                                                                 imgSize = 0;
@@ -473,6 +478,22 @@
                                                                         });
 
 
+                                                                        // Обработка нажатия на тестовую канву
+                                                                        /*     $(canvas).click(function() {
+                                                                         var blobData;
+                                                                         if (canvas.toBlob) {
+                                                                         // ожидается, что вскоре браузерами будет поддерживаться метод toBlob() для объектов Canvas
+                                                                         blobData = canvas.toBlob();
+                                                                         } else {
+                                                                         // ... а пока - конвертируем вручную из dataURI
+                                                                         blobData = dataURItoBlob(canvas.toDataURL('image/png'));
+                                                                         }
+                                                                         if (blobData === false) {
+                                                                         log("Ваш браузер не поддерживает BlobBuilder");
+                                                                         return ;
+                                                                         }
+                                                                         addFileToQueue(blobData)
+                                                                         }); */
 
 
 

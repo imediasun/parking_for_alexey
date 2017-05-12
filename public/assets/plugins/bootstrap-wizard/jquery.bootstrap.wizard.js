@@ -38,7 +38,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 		// See if we're currently in the first/last then disable the previous and last buttons
 		$($settings.previousSelector, element).toggleClass('disabled', (obj.firstIndex() >= obj.currentIndex()));
-		$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));
+		/*$($settings.nextSelector, element).toggleClass('disabled', (obj.currentIndex() >= obj.navigationLength()));*/
 		$($settings.nextSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
 		$($settings.lastSelector, element).toggleClass('hidden', (obj.currentIndex() >= obj.navigationLength() && $($settings.finishSelector, element).length > 0));
 		$($settings.finishSelector, element).toggleClass('hidden', (obj.currentIndex() < obj.navigationLength()));
@@ -60,7 +60,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	this.next = function(e) {
 
-		alert('next')
+
 		// If we clicked the last then dont activate this
 		if(element.hasClass('last')) {
 
@@ -76,6 +76,15 @@ var bootstrapWizardCreate = function(element, options) {
 
 	  // Did we click the last button
 		if($index > obj.navigationLength()) {
+			alert(window.allcomplete)
+
+			if(window.allcomplete){
+			element.parent('form').submit();
+			}
+			else{
+			alert('логотип торгового центра не добавлен !')
+
+			}
 		} else {
 		  historyStack.push(formerIndex);
 		  $navigation.find(baseItemSelector + ':visible:eq(' + $index + ') a').tab('show');
@@ -109,6 +118,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 		// If the element is disabled then we won't do anything
 		if(element.hasClass('disabled')) {
+			alert('disabled')
 			return false;
 		}
 
@@ -117,13 +127,14 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.last = function(e) {
-		alert('last')
+
 		if($settings.onLast && typeof $settings.onLast === 'function' && $settings.onLast($activeTab, $navigation, obj.lastIndex())===false){
 			return false;
 		}
 
 		// If the element is disabled then we won't do anything
 		if(element.hasClass('disabled')) {
+			alert('disabled')
 			return false;
 		}
 
