@@ -17,7 +17,7 @@ class SuperAdminIndexController extends AdminController
         //подключить меню
         $data['nav']['menu']=MenuController::index('super_admin_categories');
 
-
+        $data['content']=array();
 
         $this->template='admin_page/super_admin';
 

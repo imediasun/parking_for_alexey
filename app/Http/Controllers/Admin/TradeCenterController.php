@@ -8,6 +8,7 @@ use Auth;
 use Gate;
 use DB;
 use App\User;
+use App\Tradecentre;
 class TradeCenterController extends IndexController
 {
     public function __construct()
@@ -34,10 +35,11 @@ class TradeCenterController extends IndexController
         }
         $this->title = 'Панель администратора';
         $data['nav']['menu']=parent::menu();
+        $data['content']=array();
         $this->template='admin_page/trade_center/add_trade_center';
-        $data['title']="Додати товар";
-        $data['keywords']="Ukrainian industry platform";
-        $data['description']="Ukrainian industry platform";
+        $data['title']="Add tradecenter";
+        $data['keywords']="Parking platform";
+        $data['description']="Parking platform";
 
         return $this->renderOutput($data);
     }
@@ -48,7 +50,7 @@ dump($request->input());
 
         if($request->input('password')==$request->input('confirm')){
             $userCreate=  [
-                'name' => $request->input('name'),
+                'name' => $request->input('ca_name'),
                 'email' => $request->input('email'),
                 'password' => bcrypt($request->input('password')),
                 'information'=>' '
@@ -66,6 +68,7 @@ dump($request->input());
             $main_image=session('file_name_main_image');
             $tradecenter_set=[
                 'id' => NULL,
+                'name' => $request->input('name'),
                 'id_user'  => $last_data_object['original']['id'],
                 'image_small'=>$main_image[0]['image_small'],
             'image_medium'=>$main_image[0]['image_medium'],
@@ -84,5 +87,50 @@ dump($request->input());
         }
 
 
+    }
+    
+    
+    public function edit(){
+
+
+        $this->user=Auth::user();
+        if(Gate::denies('VIEW_ADMIN')){
+
+            abort(403);
+        }
+        $this->title = 'Панель администратора';
+        $data['nav']['menu']=parent::menu();
+        
+        $data['content']['tradecentres']=Tradecentre::orderBy('created_at', 'desc')
+         ->orderBy('updated_at', 'desc')
+         ->get();
+        $this->template='admin_page/trade_center/view_trade_centres';
+        $data['title']="Choose Tradecenter";
+        $data['keywords']="Parking platform";
+        $data['description']="Parking platform";
+
+        return $this->renderOutput($data);  
+    }
+
+
+    public function edit_center($id){
+
+
+        $this->user=Auth::user();
+        if(Gate::denies('VIEW_ADMIN')){
+
+            abort(403);
+        }
+        $this->title = 'Панель администратора';
+        $data['nav']['menu']=parent::menu();
+
+        $data['content']['tradecenter']=Tradecentre::where('id',$id)->get();
+        $data['content']['user']=$data['content']['tradecenter'][0]->users;
+        $this->template='admin_page/trade_center/edit_trade_center';
+        $data['title']="Edit Tradecenter";
+        $data['keywords']="Parking platform";
+        $data['description']="Parking platform";
+
+        return $this->renderOutput($data);
     }
 }

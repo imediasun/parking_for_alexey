@@ -75,19 +75,20 @@
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label">Name of TC</label>
                                                                 <div class="col-md-10">
-                                                                    <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text">
+                                                                    
+                                                                    <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text" value="<?php echo $tradecenter[0]->name ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label">CenterAdmin name</label>
                                                                 <div class="col-md-10">
-                                                                    <input class="form-control" name="ca_name" placeholder="Enter the Center Admin name..." type="text">
+                                                                    <input class="form-control" name="ca_name" placeholder="Enter the Center Admin name..." type="text" value="<?php echo $user->name ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label" for="example-email">Center Admin Email</label>
                                                                 <div class="col-md-10">
-                                                                    <input id="example-email" name="email" class="form-control" placeholder="Center Admin Email" type="email">
+                                                                    <input id="example-email" name="email" class="form-control" value="<?php echo $user->email ?>" placeholder="Center Admin Email" type="email">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">

@@ -34,6 +34,10 @@ class User extends Authenticatable
     public function status(){
         return $this->hasOne('App\Customers_statuses');
     }
+
+    public function tradecentre(){
+        return $this->belongsToMany('App\Tradecentre','id_user');
+    }
     
 
     public function canDo($permission, $require = FALSE){

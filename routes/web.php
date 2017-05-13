@@ -58,7 +58,8 @@ Route::get('/logout',['uses' => 'Admin\IndexController@index','as' => 'adminInde
 Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
 
     Route::get('/add_trade_center','Admin\TradeCenterController@index');
-
+    Route::get('/edit_trade_center','Admin\TradeCenterController@edit');
+    Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
        //admin
     Route::get('/super_admin','Admin\SuperAdminIndexController@index')->name('super_admin');
