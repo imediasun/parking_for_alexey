@@ -76,11 +76,12 @@ class TradeCenterController extends IndexController
             ];
             DB::table('tradecentres')->insert($tradecenter_set);
             DB::table('role_user')->insert($role_user_set);
-            return redirect()->route('good_added');
 
+            // TODO: why do not redirect by route name?
+            return redirect('good_added');
+            //return redirect()->route('good_added');
         } else {
             return redirect()->route('not_confirmed');
-
         }
     }
 
@@ -111,7 +112,6 @@ class TradeCenterController extends IndexController
     {
         $this->user = Auth::user();
         if (Gate::denies('VIEW_ADMIN')) {
-
             abort(403);
         }
         $this->title = 'Панель администратора';
@@ -161,10 +161,8 @@ class TradeCenterController extends IndexController
             DB::table('tradecentres')->where('id', $request->input('id_tradecentre'))->update($tradecenter_set);
             /*DB::table('role_user')->insert($role_user_set);*/
             return redirect()->route('good_added');
-
         } else {
             return redirect()->route('not_confirmed');
-
         }
     }
 }
