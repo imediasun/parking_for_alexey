@@ -96,7 +96,6 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Клиенты',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/clients'
-
             ],
             [
                 'parent_id' => 0,
@@ -121,6 +120,18 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Тарифы парковки на центр',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/edit_trade_center/cost'
+            ],
+            [
+                'parent_id' => 7,
+                'name' => 'Добавить рекламу',
+                'icon' => 'fa-envelope',
+                'link' => '/admin/add_adv'
+            ],
+            [
+                'parent_id' => 7,
+                'name' => 'Редактировать рекламу',
+                'icon' => 'fa-envelope',
+                'link' => '/admin/edit_adv/edit'
             ],
         ]);
 
@@ -152,6 +163,7 @@ class DatabaseSeeder extends Seeder
                 'link' => '/caenter_admin/sales'
             ]
         ]);
+
 
         DB::table('admin_categories')->insert([
             [
