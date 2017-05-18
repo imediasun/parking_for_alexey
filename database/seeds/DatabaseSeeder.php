@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             [
                 'parent_id' => 3,
                 'name' => 'Редактировать торговый центр',
-                'icon'=> 'fa-envelope','link'=> '/admin/edit_trade_center'
+                'icon'=> 'fa-envelope','link'=> '/admin/edit_trade_center/edit_center'
             ],
             [
                 'parent_id' => 0,
@@ -144,7 +144,12 @@ class DatabaseSeeder extends Seeder
                 'parent_id' => 9,
                 'name' => 'Логотипы',
                 'icon'=> 'fa-envelope','link'=> '/admin/add_logos'
-            ]
+            ],
+            [
+            'parent_id' => 3,
+            'name' => 'Тарифы парковки на центр',
+            'icon'=> 'fa-envelope','link'=> '/admin/edit_trade_center/cost'
+        ],
 
         ]);
 

@@ -61,7 +61,7 @@
 
                                         <h4 class="header-title m-t-0 m-b-30">Basic Wizard</h4>
 
-                                        <form id="add_center" action="/admin/add_center" method="post">
+                                        <form id="add_center" action="/admin/update_center" method="post">
                                             <div id="basicwizard" class=" pull-in">
                                                 <ul class="nav nav-tabs navtab-wizard nav-justified bg-muted">
                                                     <li class=""><a href="#tab1" data-toggle="tab" aria-expanded="false">TC Information</a></li>
@@ -75,7 +75,8 @@
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label">Name of TC</label>
                                                                 <div class="col-md-10">
-                                                                    
+                                                                    <input type="hidden" name="id_tradecentre" value="<?php echo $tradecenter[0]->id ?>">
+                                                                    <input type="hidden" name="id_user" value="<?php echo $user->id ?>">
                                                                     <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text" value="<?php echo $tradecenter[0]->name ?>">
                                                                 </div>
                                                             </div>
@@ -117,6 +118,12 @@
 
 
                                                             <div class="col-lg-12">
+
+                                                                <div class="logo_preview">
+
+                                                                    <img style="position:absolute;width:150px;"src="/photos/<?php echo $tradecenter[0]->image_small ?>">
+
+                                                                </div>
 
                                                                 <div id="appl_window1">
 
@@ -549,7 +556,7 @@
                                                                     <div class="form-group">
                                                                         <label class="col-md-2 control-label">Note fo TC</label>
                                                                         <div class="col-md-10">
-                                                                            <textarea class="form-control" name="note" rows="5"></textarea>
+                                                                            <textarea class="form-control" name="note" rows="5"><?php echo $tradecenter[0]->description ?></textarea>
                                                                         </div>
                                                                     </div>
 

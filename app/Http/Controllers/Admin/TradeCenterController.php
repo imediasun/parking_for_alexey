@@ -90,7 +90,7 @@ dump($request->input());
     }
     
     
-    public function edit(){
+    public function edit($operation){
 
 
         $this->user=Auth::user();
@@ -98,6 +98,8 @@ dump($request->input());
 
             abort(403);
         }
+
+        $data['content']['operation']=$operation;
         $this->title = 'Панель администратора';
         $data['nav']['menu']=parent::menu();
         
@@ -133,4 +135,51 @@ dump($request->input());
 
         return $this->renderOutput($data);
     }
+
+    public function update_center(Request $request){
+
+        //обновляем юзера
+
+        if($request->input('password')==$request->input('confirm')){
+            $userCreate=  [
+                'name' => $request->input('ca_name'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
+                'information'=>' '
+            ];
+
+            DB::table('users')->where('id', $request->input('id_user'))->update($userCreate);
+
+            $data_user = User::all();
+            $last_data_object = collect($data_user)->last();
+            $role_user_set=[
+                'id' => NULL,
+                'user_id'  => $last_data_object['original']['id'],
+                'role_id'=> 2
+            ];
+            $main_image=session('file_name_main_image');
+            $tradecenter_set=[
+                'id' => $request->input('id_tradecentre'),
+                'name' => $request->input('name'),
+                'id_user'  => $last_data_object['original']['id'],
+                'image_small'=>$main_image[0]['image_small'],
+                'image_medium'=>$main_image[0]['image_medium'],
+                'image_large'=>$main_image[0]['image_large'],
+                'thumbnail'=>$main_image[0]['image_thumbnail'],
+                'description'=> $request->input('note')
+            ];
+            DB::table('tradecentres')->where('id', $request->input('id_tradecentre'))->update($tradecenter_set);
+            /*DB::table('role_user')->insert($role_user_set);*/
+            return redirect()->route('good_added');
+
+        }
+        else{
+            return redirect()->route('not_confirmed');
+
+        }
+
+
+    }
+
+
 }

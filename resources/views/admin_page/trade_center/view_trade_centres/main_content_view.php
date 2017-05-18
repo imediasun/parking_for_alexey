@@ -40,11 +40,12 @@
 
                                 </select>
 <script>
+
     $(".form-control option").click(function(){
 
 
 
-        location.href='/admin/edit_center/'+$(this).val();
+        location.href='/admin/'+'<?php echo $operation?>'+'/'+$(this).val();
     })
 
 </script>
