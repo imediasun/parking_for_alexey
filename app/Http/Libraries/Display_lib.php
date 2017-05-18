@@ -3,6 +3,7 @@
 namespace App\Http\Libraries;
 
 use Illuminate\Http\Request;
+
 class Display_lib
 {
     public static $num;
