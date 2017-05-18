@@ -30,7 +30,6 @@ public function menu(){
     public function index(){
         $this->user=Auth::user();
 
-        
 
         if($this->user->roles[0]->id==1){
         if(Gate::denies('VIEW_ADMIN') ){

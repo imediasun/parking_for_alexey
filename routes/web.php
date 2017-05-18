@@ -42,12 +42,15 @@ Route::post('/MainController/ajax_usersessions', 'MainController@ajax_usersessio
 
 Route::get('auth/facebook', 'FacebookController@redirectToProvider')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
+
 Route::get('/good_added', function () {
     return view('good');
 })->name('good_added');
+
 Route::get('/good_added', function () {
     return view('partner');
 })->name('partner_added');
+
 Route::get('/not_yours', function () {
     return view('not_yours');
 })->name('not_yours');
@@ -56,6 +59,10 @@ Route::get('/logout',['uses' => 'Admin\IndexController@index','as' => 'adminInde
 
 //admin
 Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
+
+    // Route::get('/good_added', function () {
+    //     return view('good');
+    // })->name('good_added');
 
     Route::get('/add_trade_center','Admin\TradeCenterController@index');
     Route::get('/edit_trade_center/{operation}','Admin\TradeCenterController@edit');

@@ -34,6 +34,10 @@ class CustomersController extends IndexController
 
             abort(403);
         }
+
+        // test redirect by route name
+        //return redirect()->route('good_added');
+
         $this->title = 'Панель администратора';
         /*$data['categories']=Category::orderBy('parent_id', 'asc')
             ->orderBy('created_at', 'desc')
@@ -47,6 +51,8 @@ class CustomersController extends IndexController
         $data['title']="Додати товар";
         $data['keywords']="Ukrainian industry platform";
         $data['description']="Ukrainian industry platform";
+
+        //dd($data);
 
         return $this->renderOutput($data);
     }
