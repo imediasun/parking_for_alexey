@@ -7,7 +7,7 @@ class Display_lib
 {
     public static $num;
 
-    
+
     public static function index($path,$data,$data_nav,$data_content)
     {
         $view=view('preheader_view',$data)->render();
@@ -29,8 +29,7 @@ class Display_lib
         $view.=view('footer_view',$data)->render();
         return $view;
     }
-    
-   
+
     public static function admin($path,$data)
     {
         $view=view($path.'.preheader_view',$data)->render();
@@ -41,7 +40,11 @@ class Display_lib
             $view.=view($path.'.main_content_view', $data['content'])->render();
         } else {
             // Variables for "User Management"
+<<<<<<< HEAD
             $view.=view($path.'.main_content_view', [ 
+=======
+            $view.=view($path.'.main_content_view', [
+>>>>>>> 6b3a7d2257f5091403aedf993e53a6080da47607
                 'content' => (isset($data['content']) ? $data['content'] : []),
                 'users'   => (isset($data['users'])   ? $data['users']   : []),
                 'roles'   => (isset($data['roles'])   ? $data['roles']   : []),
