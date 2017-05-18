@@ -42,12 +42,15 @@ Route::post('/MainController/ajax_usersessions', 'MainController@ajax_usersessio
 
 Route::get('auth/facebook', 'FacebookController@redirectToProvider')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
+
 Route::get('/good_added', function () {
     return view('good');
 })->name('good_added');
+
 Route::get('/good_added', function () {
     return view('partner');
 })->name('partner_added');
+
 Route::get('/not_yours', function () {
     return view('not_yours');
 })->name('not_yours');

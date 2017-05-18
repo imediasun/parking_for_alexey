@@ -7,7 +7,6 @@ class Display_lib
 {
     public static $num;
 
-
     public static function index($path,$data,$data_nav,$data_content)
     {
         $view=view('preheader_view',$data)->render();
