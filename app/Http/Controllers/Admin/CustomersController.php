@@ -52,7 +52,7 @@ class CustomersController extends IndexController
         $data['keywords']="Ukrainian industry platform";
         $data['description']="Ukrainian industry platform";
 
-        //dd($data);
+        //dd($data); 
 
         return $this->renderOutput($data);
     }
