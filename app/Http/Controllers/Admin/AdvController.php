@@ -43,6 +43,20 @@ class AdvController extends IndexController
     public function add_adv(Request $request)
     {
         dump($request->input());
+
+//        $err = $this->validate($request, [
+//            'title' => 'required|max:255',
+//            'body' => 'required',
+//        ]);
+
+        //dd($err);
+
+        if (true) {
+
+            return redirect('good_added');
+        } else {
+            return redirect('not_confirmed');
+        }
     }
 
     public function edit($operation)

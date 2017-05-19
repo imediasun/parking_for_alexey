@@ -1,5 +1,3 @@
-
-
 <!-- FOOTER -->
 <!--===================================================-->
 <footer id="footer">
@@ -28,11 +26,9 @@
     </div>
 
 
-
     <!-- Visible when footer positions are static -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
-
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -40,7 +36,6 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
     <p class="pad-lft">&#0169; 2015 Your Company</p>
-
 
 
 </footer>
@@ -54,12 +49,9 @@
 <!--===================================================-->
 
 
-
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
-
-
 
 
 <script>
@@ -86,18 +78,26 @@
 <script type="text/javascript" src="/js/jquery.damnuploader.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#basicwizard').bootstrapWizard({'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'});
 
-        $('#progressbarwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
-            var $total = navigation.find('li').length;
-            var $current = index+1;
-            var $percent = ($current/$total) * 100;
-            $('#progressbarwizard').find('.bar').css({width:$percent+'%'});
-        },
-            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'});
+        $('#progressbarwizard').bootstrapWizard({
+            onTabShow: function (tab, navigation, index) {
+                var $total = navigation.find('li').length;
+                var $current = index + 1;
+                var $percent = ($current / $total) * 100;
+                $('#progressbarwizard').find('.bar').css({width: $percent + '%'});
+            },
+            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'
+        });
 
-        $('#btnwizard').bootstrapWizard({'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted','nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
+        $('#btnwizard').bootstrapWizard({
+            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted',
+            'nextSelector': '.button-next',
+            'previousSelector': '.button-previous',
+            'firstSelector': '.button-first',
+            'lastSelector': '.button-last'
+        });
 
         var $validator = $("#commentForm").validate({
             rules: {
@@ -129,7 +129,6 @@
             }
         });
     });
-
 </script>
 
 </body>
