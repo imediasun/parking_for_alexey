@@ -621,7 +621,7 @@ if(!empty($main_array['video4'])){
 
             DB::table('users')->where('id',$_POST['user_id'])->update($user_set);
              $customer_set=[
-             'id_user'=>$_POST['user_id'],
+             'user_id'=>$_POST['user_id'],
             'name'=>$_POST['uridical_name'],
             'edrpou'=>$_POST['edrpou'],
             'bank'=>$_POST['bank'],
@@ -636,9 +636,9 @@ if(!empty($main_array['video4'])){
 
              ];
 
-             DB::table('customers')->where('id_user',$_POST['user_id'])->update($customer_set);
+             DB::table('customers')->where('user_id',$_POST['user_id'])->update($customer_set);
 
-             return view('privat.update_inf_success',['id_user'=>$_POST['user_id']]);
+             return view('privat.update_inf_success',['user_id'=>$_POST['user_id']]);
 
         }
 
@@ -661,7 +661,7 @@ if(!empty($main_array['video4'])){
         if ($request->isMethod('post')) {
             if($_POST['status']==1){
                 $likes_set=[
-                    'id_user'=>$_POST['user'],
+                    'user_id'=>$_POST['user'],
                     'id_good'=>$_POST['id_good']
                 ];
                 DB::table('likes')->insert($likes_set);
@@ -684,8 +684,8 @@ if(!empty($main_array['video4'])){
 
     public function func_like_delete($id,$user){
 
-    DB::table('likes')->where('id_good',$id)->where('id_user',$user)->delete();
-    return view('likes.delete_success',['id_user'=>$user]);
+    DB::table('likes')->where('id_good',$id)->where('user_id',$user)->delete();
+    return view('likes.delete_success',['user_id'=>$user]);
     }
 
     public function deleteLogotype(){

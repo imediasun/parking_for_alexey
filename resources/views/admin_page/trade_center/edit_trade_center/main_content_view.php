@@ -76,7 +76,7 @@
                                                                 <label class="col-md-2 control-label">Name of TC</label>
                                                                 <div class="col-md-10">
                                                                     <input type="hidden" name="id_tradecentre" value="<?php echo $tradecenter[0]->id ?>">
-                                                                    <input type="hidden" name="id_user" value="<?php echo $user->id ?>">
+                                                                    <input type="hidden" name="user_id" value="<?php echo $user->id ?>">
                                                                     <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text" value="<?php echo $tradecenter[0]->name ?>">
                                                                 </div>
                                                             </div>

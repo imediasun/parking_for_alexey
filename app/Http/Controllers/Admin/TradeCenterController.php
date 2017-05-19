@@ -67,7 +67,7 @@ class TradeCenterController extends IndexController
             $tradecenter_set = [
                 'id' => null,
                 'name' => $request->input('name'),
-                'id_user' => $last_data_object['original']['id'],
+                'user_id' => $last_data_object['original']['id'],
                 'image_small' => $main_image[0]['image_small'],
                 'image_medium' => $main_image[0]['image_medium'],
                 'image_large' => $main_image[0]['image_large'],
@@ -143,7 +143,7 @@ class TradeCenterController extends IndexController
                 'information' => ' '
             ];
 
-            DB::table('users')->where('id', $request->input('id_user'))->update($userCreate);
+            DB::table('users')->where('id', $request->input('user_id'))->update($userCreate);
 
             $data_user = User::all();
             $last_data_object = collect($data_user)->last();
@@ -156,7 +156,7 @@ class TradeCenterController extends IndexController
             $tradecenter_set = [
                 'id' => $request->input('id_tradecentre'),
                 'name' => $request->input('name'),
-                'id_user' => $last_data_object['original']['id'],
+                'user_id' => $last_data_object['original']['id'],
                 'image_small' => $main_image[0]['image_small'],
                 'image_medium' => $main_image[0]['image_medium'],
                 'image_large' => $main_image[0]['image_large'],

@@ -36,7 +36,7 @@ class User extends Authenticatable
     }
 
     public function tradecentre(){
-        return $this->belongsToMany('App\Tradecentre','id_user');
+        return $this->belongsToMany('App\Tradecentre','user_id');
     }
     
 
