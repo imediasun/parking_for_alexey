@@ -25,7 +25,7 @@
                         <label class="col-sm-2 control-label">Choose Trade Center</label>
                         <div class="col-sm-10">
                             <select class="form-control">
-                                <option value="0">No selected</option>
+                                <option value="0">---</option>
                                 <?php
                                 foreach ($tradecentres as $tradecentre) {
                                     ?>
