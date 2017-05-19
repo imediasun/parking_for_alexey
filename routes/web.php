@@ -66,15 +66,19 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
 
     Route::get('/add_trade_center','Admin\TradeCenterController@index');
     Route::get('/edit_trade_center/{operation}','Admin\TradeCenterController@edit');
-    
-    Route::get('/add_adv','Admin\AdvController@index');
-    Route::get('/edit_adv/{operation}','Admin\AdvController@edit');
 
     Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
-    
+
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
     Route::post('/update_center','Admin\TradeCenterController@update_center')->name('add_center');
-       //admin
+
+
+    Route::get('/add_adv','Admin\AdvController@index');
+    Route::post('/add_adv','Admin\AdvController@add_adv');
+
+    Route::get('/edit_adv/{operation}','Admin\AdvController@edit');
+
+    //admin
     Route::get('/super_admin','Admin\SuperAdminIndexController@index')->name('super_admin');
     Route::get('/shop_admin','Admin\ShopAdminIndexController@index')->name('shop_admin');
     Route::get('/center_admin','Admin\CenterAdminIndexController@index')->name('center_admin');
