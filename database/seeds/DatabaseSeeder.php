@@ -125,13 +125,13 @@ class DatabaseSeeder extends Seeder
                 'parent_id' => 7,
                 'name' => 'Добавить рекламу',
                 'icon' => 'fa-envelope',
-                'link' => '/admin/add_adv'
+                'link' => '/admin/add_adv_section'
             ],
             [
                 'parent_id' => 7,
                 'name' => 'Редактировать рекламу',
                 'icon' => 'fa-envelope',
-                'link' => '/admin/edit_adv/edit'
+                'link' => '/admin/edit_adv_section/edit_adv'
             ],
         ]);
 

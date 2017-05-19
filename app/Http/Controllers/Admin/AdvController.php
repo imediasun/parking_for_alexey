@@ -108,7 +108,7 @@ class AdvController extends IndexController
 
         return $this->renderOutput($data);
     }
-    
+
 
     public function update_adv(Request $request, Adv $adv)
     {
