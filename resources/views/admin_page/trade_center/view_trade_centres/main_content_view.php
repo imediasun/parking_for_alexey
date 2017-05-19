@@ -20,8 +20,9 @@
 
             <div class="row">
                 <div class="col-sm-12">
+                    <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Choose trade center2</label>
+                        <label class="col-sm-2 control-label">Choose Trade Center</label>
                         <div class="col-sm-10">
                             <select class="form-control">
                                 <option value="0">No selected</option>
@@ -43,6 +44,7 @@
                             </script>
                         </div>
                     </div>
+                    </form>
                 </div><!-- end col -->
             </div>
 

@@ -20,40 +20,41 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Choose trade center2</label>
-                        <div class="col-sm-10">
-                            <select class="form-control">
-                                <option value="0">No selected</option>
-                                <?php
-                                foreach ($tradecentres as $tradecentre) {
-                                    ?>
-                                    <option value="<?= $tradecentre->id ?>" <?php if ($tradecentre->id == $id) echo ' selected' ?>>
-                                        <?= $tradecentre->name ?>
-                                    </option>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Choose Trade Center</label>
+                            <div class="col-sm-10">
+                                <select class="form-control">
+                                    <option value="0">---</option>
                                     <?php
-                                } ?>
-                            </select>
-
-                            <script>
-                                $(".form-control").change(function () {
-                                    var currVal = $(this).val();
-                                    if (Number(currVal) > 0) {
-                                        location.href = '/admin/parking_prices/' + currVal;
-                                    } else {
-                                        location.href = '/admin/edit_trade_center/parking_prices';
-                                    }
-                                });
-                            </script>
+                                    foreach ($tradecentres as $tradecentre) {
+                                        ?>
+                                        <option value="<?= $tradecentre->id ?>" <?php if ($tradecentre->id == $id) echo ' selected' ?>>
+                                            <?= $tradecentre->name ?>
+                                        </option>
+                                        <?php
+                                    } ?>
+                                </select>
+                                <script>
+                                    $(".form-control").change(function () {
+                                        var currVal = $(this).val();
+                                        if (Number(currVal) > 0) {
+                                            location.href = '/admin/parking_prices/' + currVal;
+                                        } else {
+                                            location.href = '/admin/edit_trade_center/parking_prices';
+                                        }
+                                    });
+                                </script>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div><!-- end col -->
             </div>
             <br>
             <div class="row">
                 <div class="col-sm-5">
                     <div class="card-box">
-                        <h4 class="header-title m-t-0 m-b-30">Basic example</h4>
+                        <h4 class="header-title m-t-0 m-b-30">Add Parking Price</h4>
                         <form method="post" action="/admin/update_center_price" class="form-horizontal">
                             <input type="hidden" name="tradecentre_id" value="<?= $id ?>">
                             <div class="form-group">
@@ -91,7 +92,7 @@
 
                 <div class="col-sm-7">
                     <div class="card-box">
-                        <h4 class="header-title m-t-0 m-b-30">Basic example</h4>
+                        <h4 class="header-title m-t-0 m-b-30">Parking Prices</h4>
 
                         <table class="table table-bordered m-0">
                             <thead>
