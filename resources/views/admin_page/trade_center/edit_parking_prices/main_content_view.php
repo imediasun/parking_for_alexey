@@ -54,13 +54,14 @@
                 <div class="col-sm-5">
                     <div class="card-box">
                         <h4 class="header-title m-t-0 m-b-30">Basic example</h4>
-                        <form class="form-horizontal" role="form">
+                        <form method="post" action="/admin/update_center_price" class="form-horizontal">
+                            <input type="hidden" name="tradecentre_id" value="<?= $id ?>">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">DAY</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control">
+                                    <select name="day" class="form-control">
                                         <?php foreach ($numOfWeek as $num => $day): ?>
-                                            <option name="day" value="<?= $num ?>"><?= $day ?></option>
+                                            <option value="<?= $num ?>"><?= $day ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
@@ -68,13 +69,13 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HOUR</label>
                                 <div class="col-md-9">
-                                    <input name="time" type="text" class="form-control" value="2">
+                                    <input name="time" type="text" class="form-control" value="" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">USD</label>
                                 <div class="col-md-9">
-                                    <input name="price" type="text" class="form-control" value="2">
+                                    <input name="price" type="text" class="form-control" value="" required>
                                 </div>
                             </div>
                             <div class="form-group m-b-0">
@@ -102,29 +103,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Sunday</td>
-                                <td>unlimit</td>
-                                <td>R8</td>
-                                <td><a href="">del</a></td>
-                            </tr>
-                            <tr>
-                                <td>Monday</td>
-                                <td>2 hour</td>
-                                <td>R10</td>
-                                <td><a href="">del</a></td>
-                            </tr>
-                            <tr>
-                                <td>Monday</td>
-                                <td>4 hour</td>
-                                <td>R10</td>
-                                <td><a href="">del</a></td>
-                            </tr>
+                            <?php foreach ($parking_prices as $parking_price): ?>
+                                <tr>
+                                    <td><?= $numOfWeek[$parking_price->day] ?></td>
+                                    <td><?= ($parking_price->time > 0) ? $parking_price->time : 'Fixed' ?></td>
+                                    <td><?= ($parking_price->price > 0) ? $parking_price->price : 'Free' ?></td>
+                                    <td><a href="">del</a></td>
+                                </tr>
+                            <?php endforeach ?>
                             </tbody>
                         </table>
 
                         <?php foreach ($parking_prices as $parking_price): ?>
-                            <?//= $parking_price->day ?>
+                            <? //= $parking_price->day ?>
                         <?php endforeach ?>
                     </div>
                 </div>

@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
 
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
     Route::post('/update_center','Admin\TradeCenterController@update_center')->name('add_center');
+    Route::post('/update_center_price','Admin\TradeCenterController@update_center_price');
 
 
     Route::get('/add_adv_section','Admin\AdvController@index');

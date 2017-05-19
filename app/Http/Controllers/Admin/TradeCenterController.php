@@ -193,8 +193,8 @@ class TradeCenterController extends IndexController
             ->get();
 
         $data['content']['parking_prices'] = ParkingPrice::where('tradecentre_id', $id)
-            ->orderBy('created_at', 'desc')
-            ->orderBy('updated_at', 'desc')
+            ->orderBy('day')
+            ->orderBy('time')
             ->get();
 
         // temporary
@@ -214,6 +214,30 @@ class TradeCenterController extends IndexController
         $data['description'] = "Parking platform";
 
         return $this->renderOutput($data);
+    }
+
+    public function update_center_price(Request $request)
+    {
+        $tradecentre_id = $request->input('tradecentre_id');
+
+        $parkingPrice = ParkingPrice::where('tradecentre_id', $tradecentre_id)
+            ->where('day', $request->input('day'))
+            ->where('time', $request->input('time'))
+            ->where('price', $request->input('price'))
+            ->first();
+
+        if ($parkingPrice === null) {
+
+            // TODO: validation
+
+            $obj = new ParkingPrice();
+            $obj->day = $request->input('day');
+            $obj->time = $request->input('time');
+            $obj->price = $request->input('price');
+            $obj->save();
+        }
+
+        return redirect('/admin/parking_prices/' . $tradecentre_id);
     }
 }
 
