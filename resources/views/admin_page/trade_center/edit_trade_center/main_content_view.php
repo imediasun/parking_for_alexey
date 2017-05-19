@@ -75,9 +75,9 @@
                                                             <div class="form-group">
                                                                 <label class="col-md-2 control-label">Name of TC</label>
                                                                 <div class="col-md-10">
-                                                                    <input type="hidden" name="id_tradecentre" value="<?php echo $tradecenter[0]->id ?>">
+                                                                    <input type="hidden" name="id_tradecentre" value="<?php echo $tradecentre[0]->id ?>">
                                                                     <input type="hidden" name="user_id" value="<?php echo $user->id ?>">
-                                                                    <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text" value="<?php echo $tradecenter[0]->name ?>">
+                                                                    <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text" value="<?php echo $tradecentre[0]->name ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -121,7 +121,7 @@
 
                                                                 <div class="logo_preview">
 
-                                                                    <img style="position:absolute;width:150px;"src="/photos/<?php echo $tradecenter[0]->image_small ?>">
+                                                                    <img style="position:absolute;width:150px;"src="/photos/<?php echo $tradecentre[0]->image_small ?>">
 
                                                                 </div>
 
@@ -556,7 +556,7 @@
                                                                     <div class="form-group">
                                                                         <label class="col-md-2 control-label">Note fo TC</label>
                                                                         <div class="col-md-10">
-                                                                            <textarea class="form-control" name="note" rows="5"><?php echo $tradecenter[0]->description ?></textarea>
+                                                                            <textarea class="form-control" name="note" rows="5"><?php echo $tradecentre[0]->description ?></textarea>
                                                                         </div>
                                                                     </div>
 

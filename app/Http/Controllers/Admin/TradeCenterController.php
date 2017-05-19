@@ -34,7 +34,7 @@ class TradeCenterController extends IndexController
         $data['nav']['menu'] = parent::menu();
         $data['content'] = array();
         $this->template = 'admin_page/trade_center/add_trade_center';
-        $data['title'] = "Add tradecenter";
+        $data['title'] = "Add tradecentre";
         $data['keywords'] = "Parking platform";
         $data['description'] = "Parking platform";
 
@@ -64,7 +64,7 @@ class TradeCenterController extends IndexController
                 'role_id' => 2
             ];
             $main_image = session('file_name_main_image');
-            $tradecenter_set = [
+            $tradecentre_set = [
                 'id' => null,
                 'name' => $request->input('name'),
                 'user_id' => $last_data_object['original']['id'],
@@ -74,7 +74,7 @@ class TradeCenterController extends IndexController
                 'thumbnail' => $main_image[0]['image_thumbnail'],
                 'description' => $request->input('note')
             ];
-            DB::table('tradecentres')->insert($tradecenter_set);
+            DB::table('tradecentres')->insert($tradecentre_set);
             DB::table('role_user')->insert($role_user_set);
 
             // TODO: why do not redirect by route name?
@@ -122,8 +122,8 @@ class TradeCenterController extends IndexController
         $this->title = 'Панель администратора';
         $data['nav']['menu'] = parent::menu();
 
-        $data['content']['tradecenter'] = Tradecentre::where('id', $id)->get();
-        $data['content']['user'] = $data['content']['tradecenter'][0]->users;
+        $data['content']['tradecentre'] = Tradecentre::where('id', $id)->get();
+        $data['content']['user'] = $data['content']['tradecentre'][0]->users;
         $this->template = 'admin_page/trade_center/edit_trade_center';
         $data['title'] = "Edit Tradecenter";
         $data['keywords'] = "Parking platform";
@@ -153,7 +153,7 @@ class TradeCenterController extends IndexController
                 'role_id' => 2
             ];
             $main_image = session('file_name_main_image');
-            $tradecenter_set = [
+            $tradecentre_set = [
                 'id' => $request->input('id_tradecentre'),
                 'name' => $request->input('name'),
                 'user_id' => $last_data_object['original']['id'],
@@ -163,7 +163,7 @@ class TradeCenterController extends IndexController
                 'thumbnail' => $main_image[0]['image_thumbnail'],
                 'description' => $request->input('note')
             ];
-            DB::table('tradecentres')->where('id', $request->input('id_tradecentre'))->update($tradecenter_set);
+            DB::table('tradecentres')->where('id', $request->input('id_tradecentre'))->update($tradecentre_set);
             /*DB::table('role_user')->insert($role_user_set);*/
             return redirect()->route('good_added');
         } else {

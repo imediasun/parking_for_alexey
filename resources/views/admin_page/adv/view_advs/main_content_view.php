@@ -30,10 +30,10 @@
                                 <select class="form-control">
 
                                     <?php
-                                    foreach ($tradecentres as $tradecenter){
+                                    foreach ($tradecentres as $tradecentre){
 
                                     ?>
-                                    <option value="<?php echo $tradecenter->id?>"><?php echo $tradecenter->name ?></option>
+                                    <option value="<?php echo $tradecentre->id?>"><?php echo $tradecentre->name ?></option>
                                      <?php
                                     }?>
 
