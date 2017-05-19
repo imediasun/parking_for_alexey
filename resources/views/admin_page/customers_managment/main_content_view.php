@@ -55,11 +55,11 @@
                                                 if ($user->roles['0']['original']['id'] == $role['original']['id']) {
                                                     ?>
                                                     <option selected value=" <?php echo $role['original']['id'] ?>"><?php echo $role['original']['name'] ?></option>
-                                                    <?
+                                                    <?php
                                                 } else {
                                                     ?>
                                                     <option value="<?php echo $role['original']['id'] ?>"> <? echo $role['original']['name'] ?></option>
-                                                    <?
+                                                    <?php
                                                 }
                                             }
                                         }
@@ -82,7 +82,7 @@
                                     ?>
                                 </td>
                             </tr>
-                            <?
+                            <?php
                         }
                         ?>
                         </tbody>
@@ -102,13 +102,15 @@
     </div>
     <!--===================================================-->
     <!--END CONTENT CONTAINER-->
-    <script>
 
+
+    <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        })
+        });
+
         $('.stl option').click(function () {
 
             var role = $(this).val()
@@ -129,6 +131,7 @@
 
             var txt;
             var r = confirm("Видалити користувача ?");
+
             if (r == true) {
                 var user = $(this).parent('td').find('.user_id').val();
 
@@ -151,7 +154,5 @@
             } else {
                 txt = "Ви вибрали відмінити видалення";
             }
-
         });
-
     </script>
