@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ParkingPrice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -169,6 +170,50 @@ class TradeCenterController extends IndexController
         } else {
             return redirect()->route('not_confirmed');
         }
+    }
+
+    public function parking_prices($id)
+    {
+        //dd($id);
+
+        $this->user = Auth::user();
+        if (Gate::denies('VIEW_ADMIN')) {
+            abort(403);
+        }
+
+        $this->title = 'Панель администратора';
+        $data['nav']['menu'] = parent::menu();
+
+        // Current Tradecentre ID
+        $data['content']['id'] = Tradecentre::where('id', $id)->first()->id;
+
+        // Tradecentres (for select)
+        $data['content']['tradecentres'] = Tradecentre::orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        $data['content']['parking_prices'] = ParkingPrice::where('tradecentre_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        // temporary
+        $data['content']['numOfWeek'] = [
+            'Понедельник',
+            'Вторинк',
+            'Среда',
+            'Четверг',
+            'Пятница',
+            'Суббота',
+            'Воскресенье',
+        ];
+
+        $this->template = 'admin_page/trade_center/edit_parking_prices';
+        $data['title'] = "Edit Tradecenter";
+        $data['keywords'] = "Parking platform";
+        $data['description'] = "Parking platform";
+
+        return $this->renderOutput($data);
     }
 }
 

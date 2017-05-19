@@ -16,8 +16,8 @@ class CreateParkingPricesTable extends Migration
         Schema::create('parking_prices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tradecentre_id')->unsigned()->default(1);
-            $table->date('day');
-            $table->time('time');
+            $table->integer('day');
+            $table->integer('time');
             $table->decimal('price');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

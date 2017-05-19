@@ -68,6 +68,7 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
     Route::get('/edit_trade_center/{operation}','Admin\TradeCenterController@edit');
 
     Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
+    Route::get('/parking_prices/{id}','Admin\TradeCenterController@parking_prices');
 
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
     Route::post('/update_center','Admin\TradeCenterController@update_center')->name('add_center');
