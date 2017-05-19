@@ -231,6 +231,7 @@ class TradeCenterController extends IndexController
             // TODO: validation
 
             $obj = new ParkingPrice();
+            $obj->tradecentre_id = $tradecentre_id;
             $obj->day = $request->input('day');
             $obj->time = $request->input('time');
             $obj->price = $request->input('price');
