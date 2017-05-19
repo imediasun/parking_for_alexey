@@ -49,9 +49,9 @@ class AdvController extends IndexController
             'short_description' => $request->input('short_description'),
             'large_description' => $request->input('large_description'),
             'image_small'       => $mainImage[0]['image_small'],
-            'image_medium'      => $mainImage[0]['image_small'],
-            'image_large'       => $mainImage[0]['image_small'],
-            'thumbnail'         => $mainImage[0]['image_small'],
+            'image_medium'      => $mainImage[0]['image_medium'],
+            'image_large'       => $mainImage[0]['image_large'],
+            'thumbnail'         => $mainImage[0]['thumbnail'],
         ];
 
         // TODO: add validation
@@ -118,9 +118,9 @@ class AdvController extends IndexController
             'short_description' => $request->input('short_description'),
             'large_description' => $request->input('large_description'),
             'image_small'       => $mainImage[0]['image_small'],
-            'image_medium'      => $mainImage[0]['image_small'],
-            'image_large'       => $mainImage[0]['image_small'],
-            'thumbnail'         => $mainImage[0]['image_small'],
+            'image_medium'      => $mainImage[0]['image_medium'],
+            'image_large'       => $mainImage[0]['image_large'],
+            'thumbnail'         => $mainImage[0]['thumbnail'],
         ];
 
         // TODO: add validation
