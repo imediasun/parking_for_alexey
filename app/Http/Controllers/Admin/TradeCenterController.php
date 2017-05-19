@@ -239,5 +239,14 @@ class TradeCenterController extends IndexController
 
         return redirect('/admin/parking_prices/' . $tradecentre_id);
     }
+
+    public function parking_price_delete($tradecentre_id, $id)
+    {
+        ParkingPrice::where('id', $id)
+            ->where('tradecentre_id', $tradecentre_id)
+            ->delete();
+
+        return redirect('/admin/parking_prices/' . $tradecentre_id);
+    }
 }
 

@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
 
     Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
     Route::get('/parking_prices/{id}','Admin\TradeCenterController@parking_prices');
+    Route::get('/centers/{center_id}/parking_prices/{id}/delete','Admin\TradeCenterController@parking_price_delete');
 
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
     Route::post('/update_center','Admin\TradeCenterController@update_center')->name('add_center');
