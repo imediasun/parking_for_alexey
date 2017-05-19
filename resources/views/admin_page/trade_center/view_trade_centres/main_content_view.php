@@ -24,6 +24,7 @@
                         <label class="col-sm-2 control-label">Choose trade center2</label>
                         <div class="col-sm-10">
                             <select class="form-control">
+                                <option value="0">No selected</option>
                                 <?php
                                 foreach ($tradecentres as $tradecenter) {
                                     ?>
@@ -33,9 +34,12 @@
                             </select>
 
                             <script>
-                                $(".form-control option").click(function () {
-                                    location.href = '/admin/' + '<?php echo $operation?>' + '/' + $(this).val();
-                                })
+                                $(".form-control").change(function() {
+                                    var currVal = $(this).val();
+                                    if (Number(currVal) > 0) {
+                                        location.href = '/admin/' + '<?php echo $operation?>' + '/' + currVal;
+                                    }
+                                });
                             </script>
                         </div>
                     </div>
