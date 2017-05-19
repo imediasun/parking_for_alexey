@@ -77,9 +77,9 @@ class AdvController extends IndexController
 
         $data['content']['tradecentres'] = [];
 
-//        $data['content']['tradecentres'] = Tradecentre::orderBy('created_at', 'desc')
-//            ->orderBy('updated_at', 'desc')
-//            ->get();
+        $data['content']['advs'] = Adv::orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         $this->template = 'admin_page/adv/view_advs';
         $data['title'] = "";

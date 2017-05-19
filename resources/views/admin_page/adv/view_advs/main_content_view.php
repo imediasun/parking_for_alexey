@@ -1,72 +1,55 @@
+<div class="boxed">
 
+    <!--CONTENT CONTAINER-->
+    <!--===================================================-->
+    <div id="content-container">
 
+        <div class="pageheader">
+            <h3><i class="fa fa-home"></i> Choose advert to edit</h3>
+            <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
+                <ol class="breadcrumb">
+                    <li><a href="#"> Home </a></li>
+                    <li class="active"> Choose trade Center to edit</li>
+                </ol>
+            </div>
+        </div>
 
-
-    <div class="boxed">
-
-        <!--CONTENT CONTAINER-->
+        <!--Page content-->
         <!--===================================================-->
-        <div id="content-container">
+        <div id="page-content">
 
-            <div class="pageheader">
-                <h3><i class="fa fa-home"></i> Choose Adv to edit</h3>
-                <div class="breadcrumb-wrapper"> <span class="label">You are here:</span>
-                    <ol class="breadcrumb">
-                        <li> <a href="#"> Home </a> </li>
-                        <li class="active"> Choose trade Center to edit</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!--Page content-->
-            <!--===================================================-->
-            <div id="page-content">
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Choose trade center2</label>
-                            <div class="col-sm-10">
-                                <select class="form-control">
-
-                                    <?php
-                                    foreach ($tradecentres as $tradecentre){
-
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Choose advert</label>
+                        <div class="col-sm-10">
+                            <select class="form-control">
+                                <option value="0">No selected</option>
+                                <?php
+                                foreach ($advs as $adv) {
                                     ?>
-                                    <option value="<?php echo $tradecentre->id?>"><?php echo $tradecentre->name ?></option>
-                                     <?php
-                                    }?>
+                                    <option value="<?php echo $adv->id ?>"><?php echo $adv->title ?></option>
+                                    <?php
+                                } ?>
+                            </select>
 
-
-                                </select>
-<script>
-
-    $(".form-control option").click(function(){
-
-
-
-        location.href='/admin/'+'<?php echo $operation?>'+'/'+$(this).val();
-    })
-
-</script>
-                            </div>
+                            <script>
+                                $(".form-control").change(function() {
+                                    var currVal = $(this).val();
+                                    if (Number(currVal) > 0) {
+                                        location.href = '/admin/' + '<?php echo $operation?>' + '/' + currVal;
+                                    }
+                                });
+                            </script>
                         </div>
-                    </div><!-- end col -->
-                </div>
-
-
-
-
+                    </div>
+                </div><!-- end col -->
             </div>
-            <!--===================================================-->
-            <!--End page content-->
-
 
         </div>
         <!--===================================================-->
-        <!--END CONTENT CONTAINER-->
+        <!--End page content-->
 
-
-
-
-
+    </div>
+    <!--===================================================-->
+    <!--END CONTENT CONTAINER-->
