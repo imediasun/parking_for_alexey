@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
                 'parent_id' => 3,
                 'name' => 'Тарифы парковки на центр',
                 'icon' => 'fa-envelope',
-                'link' => '/admin/edit_trade_center/cost'
+                'link' => '/admin/edit_trade_center/parking_prices'
             ],
             [
                 'parent_id' => 7,
