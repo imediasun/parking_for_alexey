@@ -115,9 +115,6 @@
                             </tbody>
                         </table>
 
-                        <?php foreach ($parking_prices as $parking_price): ?>
-                            <? //= $parking_price->day ?>
-                        <?php endforeach ?>
                     </div>
                 </div>
             </div>
