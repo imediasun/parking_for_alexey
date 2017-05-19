@@ -88,6 +88,8 @@ class TradeCenterController extends IndexController
 
     public function edit($operation)
     {
+        //dd($operation);
+
         $this->user = Auth::user();
         if (Gate::denies('VIEW_ADMIN')) {
             abort(403);
@@ -100,6 +102,7 @@ class TradeCenterController extends IndexController
         $data['content']['tradecentres'] = Tradecentre::orderBy('created_at', 'desc')
             ->orderBy('updated_at', 'desc')
             ->get();
+
         $this->template = 'admin_page/trade_center/view_trade_centres';
         $data['title'] = "Choose Tradecenter";
         $data['keywords'] = "Parking platform";
@@ -110,6 +113,8 @@ class TradeCenterController extends IndexController
 
     public function edit_center($id)
     {
+        //dd($id);
+
         $this->user = Auth::user();
         if (Gate::denies('VIEW_ADMIN')) {
             abort(403);
