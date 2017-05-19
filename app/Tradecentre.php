@@ -13,6 +13,6 @@ class Tradecentre extends Model
 
     public function parkingPrices()
     {
-        return $this->hasMany(Parking_prices::class);
+        return $this->hasMany(ParkingPrice::class);
     }
 }
