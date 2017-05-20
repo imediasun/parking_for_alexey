@@ -199,13 +199,13 @@ class TradeCenterController extends IndexController
 
         // temporary
         $data['content']['numOfWeek'] = [
-            'Понедельник',
-            'Вторинк',
-            'Среда',
-            'Четверг',
-            'Пятница',
-            'Суббота',
-            'Воскресенье',
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
         ];
 
         $this->template = 'admin_page/trade_center/edit_parking_prices';

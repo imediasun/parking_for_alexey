@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HOUR</label>
                                 <div class="col-md-9">
-                                    <input name="time" type="text" class="form-control" value="" required>
+                                    <input name="time" type="number" class="form-control" value="" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -98,6 +98,7 @@
                             <thead>
                             <tr>
                                 <th>Day</th>
+                                <th>R</th>
                                 <th>Time</th>
                                 <th>USD</th>
                                 <th>Action</th>
@@ -107,6 +108,7 @@
                             <?php foreach ($parking_prices as $parking_price): ?>
                                 <tr>
                                     <td><?= $numOfWeek[$parking_price->day] ?></td>
+                                    <td><?= $parking_price->getPriceR() ?></td>
                                     <td><?= ($parking_price->time > 0) ? $parking_price->time : 'Fixed' ?></td>
                                     <td><?= ($parking_price->price > 0) ? $parking_price->price : 'Free' ?></td>
                                     <td><a href="<?= route('parking_price_delete', [$id, $parking_price->id]) ?>">Delete</a></td>
