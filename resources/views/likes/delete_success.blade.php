@@ -20,7 +20,7 @@
 
     function func() {
 
-    location.href='/cabinet/likes/{{ $id_user }}';
+    location.href='/cabinet/likes/{{ $user_id }}';
     }
 
     setTimeout(func, 4000);

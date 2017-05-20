@@ -55,44 +55,35 @@
 
                                     <h4 class="header-title m-t-0 m-b-30">Basic Wizard</h4>
 
-                                    <form id="add_center" action="/admin/add_center" method="post">
+                                    <form id="add_center" action="/admin/add_adv" method="post">
                                         <div id="basicwizard" class=" pull-in">
                                             <ul class="nav nav-tabs navtab-wizard nav-justified bg-muted">
-                                                <li class=""><a href="#tab1" data-toggle="tab" aria-expanded="false">TC Information</a></li>
-                                                <li class="active"><a href="#tab2" data-toggle="tab" aria-expanded="true">TC Logo</a></li>
-                                                <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">Finish</a></li>
+                                                <li class="">
+                                                    <a href="#tab1" data-toggle="tab" aria-expanded="false">Information</a>
+                                                </li>
+                                                <li class="active">
+                                                    <a href="#tab2" data-toggle="tab" aria-expanded="true">Image</a>
+                                                </li>
                                             </ul>
                                             <div class="tab-content b-0 m-b-0">
                                                 <div class="tab-pane m-t-10 fade" id="tab1">
                                                     <div class="row">
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">Name of TC</label>
+                                                            <label class="col-md-2 control-label">Tile</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text">
+                                                                <input class="form-control" name="title" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">CenterAdmin name</label>
+                                                            <label class="col-md-2 control-label">Short Description</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="ca_name" placeholder="Enter the Center Admin name..." type="text">
+                                                                <textarea class="form-control" name="short_description"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label" for="example-email">Center Admin Email</label>
+                                                            <label class="col-md-2 control-label">Large Description</label>
                                                             <div class="col-md-10">
-                                                                <input id="example-email" name="email" class="form-control" placeholder="Center Admin Email" type="email">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Password</label>
-                                                            <div class="col-md-10">
-                                                                <input class="form-control" name="password" value="password" type="password">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Confirm Password</label>
-                                                            <div class="col-md-10">
-                                                                <input class="form-control" name="confirm" value="password" type="password">
+                                                                <textarea class="form-control" name="large_description"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -498,31 +489,13 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="tab-pane m-t-10 fade" id="tab3">
-                                                    <div class="row">
-                                                        <div class="form-group clearfix">
-                                                            <div class="col-lg-12">
-                                                                <div class="form-group">
-                                                                    <label class="col-md-2 control-label">Note fo TC</label>
-                                                                    <div class="col-md-10">
-                                                                        <textarea class="form-control" name="note" rows="5"></textarea>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="checkbox checkbox-primary">
-                                                                    <input id="checkbox-h" type="checkbox">
-                                                                    <label for="checkbox-h">
-                                                                        I agree with the Terms and Conditions.
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <ul class="pager wizard m-b-0">
-                                                    <li class="previous"><a href="#" class="btn btn-primary waves-effect waves-light">Previous</a>
+                                                    <li class="previous">
+                                                        <a href="#" class="btn btn-primary waves-effect waves-light">Previous</a>
                                                     </li>
-                                                    <li class="next"><a href="#" class="btn btn-primary waves-effect waves-light">Next</a></li>
+                                                    <li class="next">
+                                                        <a href="#" class="btn btn-primary waves-effect waves-light">Next</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -544,8 +517,3 @@
     </div>
     <!--===================================================-->
     <!--END CONTENT CONTAINER-->
-
-
-
-
-

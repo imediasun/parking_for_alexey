@@ -5,7 +5,7 @@
     <div id="content-container">
 
         <div class="pageheader">
-            <h3><i class="fa fa-home"></i> Choose trade Center to edit</h3>
+            <h3><i class="fa fa-home"></i> Choose advert to edit</h3>
             <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
                 <ol class="breadcrumb">
                     <li><a href="#"> Home </a></li>
@@ -20,16 +20,15 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Choose Trade Center</label>
+                        <label class="col-sm-2 control-label">Choose advert</label>
                         <div class="col-sm-10">
                             <select class="form-control">
-                                <option value="0">---</option>
+                                <option value="0">No selected</option>
                                 <?php
-                                foreach ($tradecentres as $tradecentre) {
+                                foreach ($advs as $adv) {
                                     ?>
-                                    <option value="<?php echo $tradecentre->id ?>"><?php echo $tradecentre->name ?></option>
+                                    <option value="<?php echo $adv->id ?>"><?php echo $adv->title ?></option>
                                     <?php
                                 } ?>
                             </select>
@@ -44,7 +43,6 @@
                             </script>
                         </div>
                     </div>
-                    </form>
                 </div><!-- end col -->
             </div>
 
@@ -55,8 +53,3 @@
     </div>
     <!--===================================================-->
     <!--END CONTENT CONTAINER-->
-
-
-
-
-

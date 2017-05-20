@@ -38,10 +38,13 @@
                         <h4 class="header-title m-t-0 m-b-30">Trade center preferences</h4>
 
                         <div class="row">
+
+
                             <div class="col-lg-12">
                                 <div class="card-box p-b-0">
                                     <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                                           aria-expanded="false">
                                             <i class="zmdi zmdi-more-vert"></i>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
@@ -58,51 +61,71 @@
                                     <form id="add_center" action="/admin/add_center" method="post">
                                         <div id="basicwizard" class=" pull-in">
                                             <ul class="nav nav-tabs navtab-wizard nav-justified bg-muted">
-                                                <li class=""><a href="#tab1" data-toggle="tab" aria-expanded="false">TC Information</a></li>
-                                                <li class="active"><a href="#tab2" data-toggle="tab" aria-expanded="true">TC Logo</a></li>
-                                                <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">Finish</a></li>
+                                                <li class=""><a href="#tab1" data-toggle="tab" aria-expanded="false">TC
+                                                        Information</a></li>
+                                                <li class="active"><a href="#tab2" data-toggle="tab"
+                                                                      aria-expanded="true">TC Logo</a></li>
+                                                <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">Finish</a>
+                                                </li>
                                             </ul>
                                             <div class="tab-content b-0 m-b-0">
                                                 <div class="tab-pane m-t-10 fade" id="tab1">
                                                     <div class="row">
+
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Name of TC</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="name" placeholder="Enter the name of TC..." type="text">
+                                                                <input class="form-control" name="name"
+                                                                       placeholder="Enter the name of TC..."
+                                                                       type="text">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">CenterAdmin name</label>
+                                                            <label class="col-md-2 control-label">CenterAdmin
+                                                                name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="ca_name" placeholder="Enter the Center Admin name..." type="text">
+                                                                <input class="form-control" name="ca_name"
+                                                                       placeholder="Enter the Center Admin name..."
+                                                                       type="text">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label" for="example-email">Center Admin Email</label>
+                                                            <label class="col-md-2 control-label" for="example-email">Center
+                                                                Admin Email</label>
                                                             <div class="col-md-10">
-                                                                <input id="example-email" name="email" class="form-control" placeholder="Center Admin Email" type="email">
+                                                                <input id="example-email" name="email"
+                                                                       class="form-control"
+                                                                       placeholder="Center Admin Email" type="email">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Password</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="password" value="password" type="password">
+                                                                <input class="form-control" name="password"
+                                                                       value="password" type="password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">Confirm Password</label>
+                                                            <label class="col-md-2 control-label">Confirm
+                                                                Password</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="confirm" value="password" type="password">
+                                                                <input class="form-control" name="confirm"
+                                                                       value="password" type="password">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
 
+
+                                                    </div>
+
+                                                </div>
                                                 <div class="tab-pane m-t-10 fade active in" id="tab2">
                                                     <div class="row">
+
+
                                                         <div class="col-lg-12">
 
                                                             <div id="appl_window1">
+
                                                                 <div id="close_window1" class="del_prod_btn"></div>
                                                                 <div id="add_photo1">
                                                                     <br>
@@ -143,28 +166,43 @@
                                                                     </h6>
                                                                     <label>Фотография*<span>&nbsp;&nbsp;&nbsp;       Чтобы добавить картинку, нажми обзор или просто перетащи в желтую область ниже &dArr;<hr></span></label>
                                                                     <br>
-                                                                    <input type="file" name="my-pic[]" id="file-field4" class="image" multiple="multiple"/>
+                                                                    <input type="file" name="my-pic[]" id="file-field4"
+                                                                           class="image" multiple="multiple"/>
                                                                     <a id="cancel-all4">Отменить все</a>
                                                                     <div id="img-container4">
                                                                         <ul id="img-list4"></ul>
                                                                     </div>
                                                                     <div id="leftpanel1">
                                                                         <div id="actions1">
-                                                                            <input type="hidden" name="lwidth" value="<?= $image_width ?>">
-                                                                            <input type="hidden" name="lheight" value="<?= $image_height ?>">
-                                                                            <input type="hidden" name="lproducers" value="/upload">
-                                                                            <input type="hidden" name="ltype" value="<?= $image_type ?>">
+
+
+                                                                            <input type="hidden" name="lwidth"
+                                                                                   value="<?= $image_width ?>">
+                                                                            <input type="hidden" name="lheight"
+                                                                                   value="<?= $image_height ?>">
+                                                                            <input type="hidden" name="lproducers"
+                                                                                   value="/upload">
+                                                                            <input type="hidden" name="ltype"
+                                                                                   value="<?= $image_type ?>">
                                                                             <span id="info-count1">Изображений не выбрано</span><br/>
-                                                                            Общий размер:<span id="info-size1">0</span> Кб<br/><br/>
+                                                                            Общий размер:<span id="info-size1">0</span>
+                                                                            Кб<br/><br/>
                                                                         </div>
                                                                         <div id="console4"></div>
-                                                                        <div style="width:250px;" class="btn btn-primary apply_btn1">Сохранить фото на сервере</div>
+                                                                        <div style="width:250px;"
+                                                                             class="btn btn-primary apply_btn1">
+                                                                            Сохранить фото на сервере
+                                                                        </div>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <script>
+
+
                                                                 $(document).ready(function () {
+
 
                                                                     // Консоль
                                                                     var $console = $("#console4");
@@ -182,6 +220,7 @@
                                                                     // Счетчик всех выбранных файлов и их размера
                                                                     var imgCount = 0;
                                                                     var imgSize = 0;
+
 
                                                                     // Стандарный input для файлов
                                                                     var fileInput = $('#file-field4');
@@ -231,7 +270,9 @@
                                                                             imgCount = 0;
                                                                             imgSize = 0;
                                                                             updateInfo();
+
                                                                         }
+
                                                                     });
 
 
@@ -351,8 +392,13 @@
                                                                              updateProgress(pBar, percents);
                                                                              }, */
                                                                             onComplete: function (successfully, data, errorCode) {
+
                                                                                 if (successfully) {
+
+
                                                                                     log('Файл `' + this.file.name + '` загружен, полученные данные:<br/>*****<br/>' + data + '<br/>*****');
+
+
                                                                                 } else {
                                                                                     if (!this.cancelled) {
                                                                                         log('<span style="color:red;">Файл `' + this.file.name + '`: ошибка при загрузке. Код: ' + errorCode + '</span>');
@@ -491,23 +537,33 @@
                                                                         log('Выбор файлов поддерживается');
                                                                     }
                                                                     log('*** Проверка поддержки ***');
+
+
                                                                 });
+
+
                                                             </script>
 
                                                         </div>
+
+
                                                     </div>
                                                 </div>
-
                                                 <div class="tab-pane m-t-10 fade" id="tab3">
                                                     <div class="row">
                                                         <div class="form-group clearfix">
                                                             <div class="col-lg-12">
+
+
                                                                 <div class="form-group">
-                                                                    <label class="col-md-2 control-label">Note fo TC</label>
+                                                                    <label class="col-md-2 control-label">Note fo
+                                                                        TC</label>
                                                                     <div class="col-md-10">
-                                                                        <textarea class="form-control" name="note" rows="5"></textarea>
+                                                                        <textarea class="form-control" name="note"
+                                                                                  rows="5"></textarea>
                                                                     </div>
                                                                 </div>
+
 
                                                                 <div class="checkbox checkbox-primary">
                                                                     <input id="checkbox-h" type="checkbox">
@@ -520,15 +576,19 @@
                                                     </div>
                                                 </div>
                                                 <ul class="pager wizard m-b-0">
-                                                    <li class="previous"><a href="#" class="btn btn-primary waves-effect waves-light">Previous</a>
+                                                    <li class="previous"><a href="#"
+                                                                            class="btn btn-primary waves-effect waves-light">Previous</a>
                                                     </li>
-                                                    <li class="next"><a href="#" class="btn btn-primary waves-effect waves-light">Next</a></li>
+                                                    <li class="next"><a href="#"
+                                                                        class="btn btn-primary waves-effect waves-light">Next</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+
 
                         </div><!-- end row -->
                     </div>

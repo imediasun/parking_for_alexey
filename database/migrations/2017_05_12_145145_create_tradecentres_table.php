@@ -15,14 +15,14 @@ class CreateTradecentresTable extends Migration
     {
         Schema::create('tradecentres', function (Blueprint $table) {  
             $table->increments('id');
-            $table->integer('id_user')->unsigned()->default(1);
+            $table->integer('user_id')->unsigned()->default(1);
             $table->string('name')->default('')->nullable();;
             $table->string('description')->default('')->nullable();;
             $table->string('image_small')->default(0);
             $table->string('image_medium')->default(0);
             $table->string('image_large')->default(0);
             $table->string('thumbnail')->default(0);
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->rememberToken();
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

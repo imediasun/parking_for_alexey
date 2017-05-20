@@ -8,6 +8,11 @@ class Tradecentre extends Model
 {
     //
     public function users(){
-        return $this->belongsTo('App\User','id_user');
+        return $this->belongsTo('App\User','user_id');
+    }
+
+    public function parkingPrices()
+    {
+        return $this->hasMany(ParkingPrice::class);
     }
 }
