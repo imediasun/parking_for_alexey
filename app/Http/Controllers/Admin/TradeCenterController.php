@@ -236,7 +236,21 @@ class TradeCenterController extends IndexController
             $obj->price = $request->input('price');
             $obj->save();
         } else {
+            // temporary
+            $days = [
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ];
 
+            $request->session()->flash(
+                'parking_price_already',
+                'Day = ' . $days[$parkingPrice->day] . ' and Time = ' . $parkingPrice->time . ' is already exists!'
+            );
         }
 
         return redirect('/admin/parking_prices/' . $tradecentre_id);
