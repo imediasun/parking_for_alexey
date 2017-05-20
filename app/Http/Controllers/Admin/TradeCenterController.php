@@ -199,13 +199,13 @@ class TradeCenterController extends IndexController
 
         // temporary
         $data['content']['numOfWeek'] = [
-            'Понедельник',
-            'Вторинк',
-            'Среда',
-            'Четверг',
-            'Пятница',
-            'Суббота',
-            'Воскресенье',
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
         ];
 
         $this->template = 'admin_page/trade_center/edit_parking_prices';
@@ -223,7 +223,6 @@ class TradeCenterController extends IndexController
         $parkingPrice = ParkingPrice::where('tradecentre_id', $tradecentre_id)
             ->where('day', $request->input('day'))
             ->where('time', $request->input('time'))
-            ->where('price', $request->input('price'))
             ->first();
 
         if ($parkingPrice === null) {
@@ -236,6 +235,22 @@ class TradeCenterController extends IndexController
             $obj->time = $request->input('time');
             $obj->price = $request->input('price');
             $obj->save();
+        } else {
+            // temporary
+            $days = [
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ];
+
+            $request->session()->flash(
+                'parking_price_already',
+                'Day = ' . $days[$parkingPrice->day] . ' and Time = ' . $parkingPrice->time . ' is already exists!'
+            );
         }
 
         return redirect('/admin/parking_prices/' . $tradecentre_id);

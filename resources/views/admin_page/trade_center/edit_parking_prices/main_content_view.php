@@ -18,6 +18,7 @@
         <!--===================================================-->
         <div id="page-content">
 
+
             <div class="row">
                 <div class="col-sm-12">
                     <form class="form-horizontal">
@@ -50,6 +51,7 @@
                     </form>
                 </div><!-- end col -->
             </div>
+
             <br>
             <div class="row">
                 <div class="col-sm-5">
@@ -70,13 +72,13 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">HOUR</label>
                                 <div class="col-md-9">
-                                    <input name="time" type="text" class="form-control" value="" required>
+                                    <input name="time" type="number" class="form-control" value="" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">USD</label>
                                 <div class="col-md-9">
-                                    <input name="price" type="text" class="form-control" value="" required>
+                                    <input name="price" type="text" class="form-control" value="" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group m-b-0">
@@ -94,12 +96,20 @@
                     <div class="card-box">
                         <h4 class="header-title m-t-0 m-b-30">Parking Prices</h4>
 
+                        <?php if (Session::has('parking_price_already')): ?>
+                            <div class="alert alert-danger">
+                                <?= Session::get('parking_price_already') ?><br>
+                                First, delete this price.
+                            </div>
+                        <?php endif ?>
+
                         <table class="table table-bordered m-0">
                             <thead>
                             <tr>
                                 <th>Day</th>
                                 <th>Time</th>
                                 <th>USD</th>
+                                <th>R</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -109,6 +119,7 @@
                                     <td><?= $numOfWeek[$parking_price->day] ?></td>
                                     <td><?= ($parking_price->time > 0) ? $parking_price->time : 'Fixed' ?></td>
                                     <td><?= ($parking_price->price > 0) ? $parking_price->price : 'Free' ?></td>
+                                    <td><?= $parking_price->getPriceR() ?></td>
                                     <td><a href="<?= route('parking_price_delete', [$id, $parking_price->id]) ?>">Delete</a></td>
                                 </tr>
                             <?php endforeach ?>
