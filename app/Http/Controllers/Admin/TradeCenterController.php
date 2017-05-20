@@ -223,7 +223,6 @@ class TradeCenterController extends IndexController
         $parkingPrice = ParkingPrice::where('tradecentre_id', $tradecentre_id)
             ->where('day', $request->input('day'))
             ->where('time', $request->input('time'))
-            ->where('price', $request->input('price'))
             ->first();
 
         if ($parkingPrice === null) {
@@ -236,6 +235,8 @@ class TradeCenterController extends IndexController
             $obj->time = $request->input('time');
             $obj->price = $request->input('price');
             $obj->save();
+        } else {
+
         }
 
         return redirect('/admin/parking_prices/' . $tradecentre_id);

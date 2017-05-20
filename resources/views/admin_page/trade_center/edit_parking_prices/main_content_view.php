@@ -98,9 +98,9 @@
                             <thead>
                             <tr>
                                 <th>Day</th>
-                                <th>R</th>
                                 <th>Time</th>
                                 <th>USD</th>
+                                <th>R</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -108,9 +108,9 @@
                             <?php foreach ($parking_prices as $parking_price): ?>
                                 <tr>
                                     <td><?= $numOfWeek[$parking_price->day] ?></td>
-                                    <td><?= $parking_price->getPriceR() ?></td>
                                     <td><?= ($parking_price->time > 0) ? $parking_price->time : 'Fixed' ?></td>
                                     <td><?= ($parking_price->price > 0) ? $parking_price->price : 'Free' ?></td>
+                                    <td><?= $parking_price->getPriceR() ?></td>
                                     <td><a href="<?= route('parking_price_delete', [$id, $parking_price->id]) ?>">Delete</a></td>
                                 </tr>
                             <?php endforeach ?>
