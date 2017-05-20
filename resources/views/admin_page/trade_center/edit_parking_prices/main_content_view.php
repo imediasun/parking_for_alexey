@@ -109,7 +109,7 @@
                                     <td><?= $numOfWeek[$parking_price->day] ?></td>
                                     <td><?= ($parking_price->time > 0) ? $parking_price->time : 'Fixed' ?></td>
                                     <td><?= ($parking_price->price > 0) ? $parking_price->price : 'Free' ?></td>
-                                    <td><a href="/admin/centers/<?= $id ?>/parking_prices/<?= $parking_price->id ?>/delete">del</a></td>
+                                    <td><a href="<?= route('parking_price_delete', [$id, $parking_price->id]) ?>">Delete</a></td>
                                 </tr>
                             <?php endforeach ?>
                             </tbody>

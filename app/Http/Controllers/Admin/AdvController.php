@@ -51,7 +51,7 @@ class AdvController extends IndexController
             'image_small'       => $mainImage[0]['image_small'],
             'image_medium'      => $mainImage[0]['image_medium'],
             'image_large'       => $mainImage[0]['image_large'],
-            'thumbnail'         => $mainImage[0]['thumbnail'],
+            'thumbnail'         => $mainImage[0]['image_thumbnail'],
         ];
 
         // TODO: add validation
@@ -120,7 +120,7 @@ class AdvController extends IndexController
             'image_small'       => $mainImage[0]['image_small'],
             'image_medium'      => $mainImage[0]['image_medium'],
             'image_large'       => $mainImage[0]['image_large'],
-            'thumbnail'         => $mainImage[0]['thumbnail'],
+            'thumbnail'         => $mainImage[0]['image_thumbnail'],
         ];
 
         // TODO: add validation

@@ -65,23 +65,24 @@ Route::group(['prefix' => 'admin','middleware'=>['web','auth']],function(){
     // })->name('good_added');
 
     Route::get('/add_trade_center','Admin\TradeCenterController@index');
-    Route::get('/edit_trade_center/{operation}','Admin\TradeCenterController@edit');
-
-    Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
-    Route::get('/parking_prices/{id}','Admin\TradeCenterController@parking_prices');
-    Route::get('/centers/{center_id}/parking_prices/{id}/delete','Admin\TradeCenterController@parking_price_delete');
-
     Route::post('/add_center','Admin\TradeCenterController@add_center')->name('add_center');
+
+    Route::get('/edit_trade_center/{operation}','Admin\TradeCenterController@edit');
+    Route::get('/edit_center/{id}','Admin\TradeCenterController@edit_center');
     Route::post('/update_center','Admin\TradeCenterController@update_center')->name('add_center');
+
+    Route::get('/parking_prices/{id}','Admin\TradeCenterController@parking_prices');
     Route::post('/update_center_price','Admin\TradeCenterController@update_center_price');
+
+    Route::get('/centers/{center_id}/parking_prices/{id}/delete', 'Admin\TradeCenterController@parking_price_delete')
+        ->name('parking_price_delete');
 
 
     Route::get('/add_adv_section','Admin\AdvController@index');
-    Route::get('/edit_adv_section/{operation}','Admin\AdvController@edit');
-
-    Route::get('/edit_adv/{id}','Admin\AdvController@edit_adv');
-
     Route::post('/add_adv','Admin\AdvController@add_adv');
+
+    Route::get('/edit_adv_section/{operation}','Admin\AdvController@edit');
+    Route::get('/edit_adv/{id}','Admin\AdvController@edit_adv');
     Route::post('/update_adv','Admin\AdvController@update_adv');
 
 
