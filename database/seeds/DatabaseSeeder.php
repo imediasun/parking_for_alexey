@@ -63,73 +63,73 @@ class DatabaseSeeder extends Seeder
         DB::table('super_admin_categories')->insert([
             [
                 'parent_id' => 0,
-                'name' => 'Пользователи',
+                'name' => 'Users',
                 'icon' => 'fa-users',
                 'link' => '/admin'
             ],
             [
                 'parent_id' => 1,
-                'name' => 'Управление пользователями',
+                'name' => 'User management',
                 'icon' => 'fa-registered',
                 'link' => '/admin/customers_managment'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Торговые центры',
+                'name' => 'Trade centers',
                 'icon' => 'fa-gift',
                 'link' => '/admin/trade_centres'
             ],
             [
                 'parent_id' => 3,
-                'name' => 'Добавить торговый центр',
+                'name' => 'Add trade center',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/add_trade_center'
             ],
             [
                 'parent_id' => 3,
-                'name' => 'Редактировать торговый центр',
+                'name' => 'Edit trade center',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/edit_trade_center/edit_center'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Клиенты',
+                'name' => 'Clients',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/clients'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Реклама',
+                'name' => 'Advertising',
                 'icon' => 'fa-bullhorn',
                 'link' => '/admin/adv'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Партнери',
+                'name' => 'Partners',
                 'icon' => 'fa-thumbs-o-up',
                 'link' => '/admin/partners'
             ],
             [
                 'parent_id' => 9,
-                'name' => 'Логотипы',
+                'name' => 'Logos',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/add_logos'
             ],
             [
                 'parent_id' => 3,
-                'name' => 'Тарифы парковки на центр',
+                'name' => 'Parking prices of center',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/edit_trade_center/parking_prices'
             ],
             [
                 'parent_id' => 7,
-                'name' => 'Добавить рекламу',
+                'name' => 'Add ad',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/add_adv_section'
             ],
             [
                 'parent_id' => 7,
-                'name' => 'Редактировать рекламу',
+                'name' => 'Edit ad',
                 'icon' => 'fa-envelope',
                 'link' => '/admin/edit_adv_section/edit_adv'
             ],
@@ -139,28 +139,28 @@ class DatabaseSeeder extends Seeder
         DB::table('center_admin_categories')->insert([
             [
                 'parent_id' => 0,
-                'name' => 'Торговый центр',
+                'name' => 'Trade center',
                 'icon' => 'fa-users',
-                'link' => '/caenter_admin/trade_center'
+                'link' => '/center_admin/trade_center'
             ],
             [
                 'parent_id' => 1,
-                'name' => 'Тарифы парковки',
+                'name' => 'Parking prices',
                 'icon' => 'fa-registered',
-                'link' => '/caenter_admin/parking_payment'
+                'link' => '/center_admin/parking_payment'
             ],
 
             [
                 'parent_id' => 1,
-                'name' => 'Статистика',
+                'name' => 'Statistics',
                 'icon' => 'fa-gift',
-                'link' => '/caenter_admin/statistic'
+                'link' => '/center_admin/statistic'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Акции',
+                'name' => 'Promotions',
                 'icon' => 'fa-envelope',
-                'link' => '/caenter_admin/sales'
+                'link' => '/center_admin/sales'
             ]
         ]);
 
@@ -168,13 +168,13 @@ class DatabaseSeeder extends Seeder
         DB::table('admin_categories')->insert([
             [
                 'parent_id' => 0,
-                'name' => 'Акции',
+                'name' => 'Promotions',
                 'icon' => 'fa-users',
                 'link' => '/shop_admin/sales'
             ],
             [
                 'parent_id' => 0,
-                'name' => 'Статистика',
+                'name' => 'Statistics',
                 'icon' => 'fa-gift',
                 'link' => '/shop_admin/statistic'
             ]
