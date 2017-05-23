@@ -21,8 +21,8 @@ class CteateClientsTable extends Migration
             $table->string('street_house_number')->default('')->nullable();
             $table->string('zip_code')->default('')->nullable();
             $table->string('city')->default('')->nullable();
-            $table->boolean('different');
-            $table->boolean('active');
+            $table->boolean('different')->default(0);
+            $table->boolean('active')->default(0);
             $table->string('install_street_house_number')->default('')->nullable();
             $table->string('install_zip_code')->default('')->nullable();
             $table->string('install_city')->default('')->nullable();
@@ -31,7 +31,7 @@ class CteateClientsTable extends Migration
             $table->string('reachability')->default('')->nullable();
             $table->string('service')->default('')->nullable();
             $table->string('comments')->default('')->nullable();
-            $table->boolean('comments_hidden');
+            $table->boolean('comments_hidden')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

@@ -53,9 +53,7 @@ class ClientsController extends ApiController
         $client = Client::find($id);
 
         if (! $client) {
-            return $this->errorNotFound(
-                'Did you just invent an ID and try loading a client?'
-            );
+            return $this->errorNotFound();
         }
 
         return $this->respondWithItem($client, new ClientTransformer);
