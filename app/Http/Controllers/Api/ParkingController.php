@@ -21,15 +21,6 @@ class ParkingController extends ApiController
         return $this->respondWithCollection($parking, new ParkingTransformer);
     }
 
-    public function saveParking($id)
-    {
-        if ($id) {
-
-        } else {
-
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +39,14 @@ class ParkingController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+//        $data = $request->input('main');
+//
+//        DB::table('parking')->insert([
+//            'client_id'        => $data['client_id'],
+//            'parking_price_id' => $data['parking_price_id'],
+//            'check_in_time'    => $data['check_in_time'],
+//            'check_out_time'   => $data['check_out_time'],
+//        ]);
     }
 
     /**
@@ -61,7 +59,7 @@ class ParkingController extends ApiController
     {
         $parking = Parking::find($id);
 
-        if (! $parking) {
+        if (!$parking) {
             return $this->errorNotFound();
         }
 

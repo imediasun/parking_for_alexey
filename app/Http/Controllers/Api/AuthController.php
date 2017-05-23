@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\Application;
+
 class AuthController extends Controller
 {
     public function authenticateApp(Request $request){
@@ -14,12 +15,9 @@ class AuthController extends Controller
             Str::substr($request->header('Authorization'), 6)
         );
 
-       
         try {
             list($appKey, $appSecret) = explode(':', $credentials);
-
             $app = Application::whereKeyAndSecret($appKey, $appSecret)->firstOrFail();
-
         } catch (\Throwable $e) {
             return response('invalid_credentials', 400);
         }
