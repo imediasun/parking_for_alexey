@@ -104,7 +104,7 @@ $router->group(['prefix' => 'api/v1'], function ($router) {
 
 // -----------------------------------------------------------
 // 23.05.2017
-Route::group([
+/*Route::group([
     'as' => 'api.',
     'prefix' => 'api/v1',
     'namespace' => 'Api',
@@ -115,7 +115,7 @@ Route::group([
     $router->resource('clients', 'ClientsController');
     $router->resource('parking', 'ParkingController');
 
-});
+});*/
 
 
 // авторизация приложения для доступа к данным пользователя...
