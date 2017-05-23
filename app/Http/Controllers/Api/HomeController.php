@@ -8,7 +8,7 @@ use App\Client;
 use DB;
 use App\Question;
 
-class HomeController extends Controller
+class HomeController extends ApiController
 {
     public function authorizeApp(Request $request)
     {
