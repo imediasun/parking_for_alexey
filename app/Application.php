@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Firebase\JWT\JWT;
+
 class Application extends Model
 {
     public function generateAuthToken()
     {
-
         $jwt = JWT::encode([
             'iss' => 'interdomus',
             'sub' => $this->key,

@@ -22,18 +22,18 @@
             <!--===================================================-->
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Основна таблиця управління користувачами</h3>
+                    <h3 class="panel-title">User management</h3>
                 </div>
                 <div class="panel-body">
                     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Ім'я</th>
-                            <th>EmailL</th>
-                            <th class="min-tablet">Роль</th>
-                            <th class="min-tablet">Дата регестраціі</th>
-                            <th class="min-desktop">Видалити</th>
-                            <th class="min-desktop">Активацiя</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th class="min-tablet">Role</th>
+                            <th class="min-tablet">Date of registration</th>
+                            <th class="min-desktop">Delete</th>
+                            <th class="min-desktop">Active</th>
                         </tr>
                         </thead>
 
@@ -75,9 +75,9 @@
                                 <td>
                                     <?php
                                     if ($user['original']['activated'] == 1) {
-                                        echo 'Активован';
+                                        echo 'Activated';
                                     } else {
-                                        echo 'Не активован';
+                                        echo 'Not Activated';
                                     }
                                     ?>
                                 </td>
