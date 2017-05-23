@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ParkingPrice extends Model
 {
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'parking_prices';
+
     public function tradecentre()
     {
         return $this->belongsTo(Tradecentre::class, 'tradecentre_id');

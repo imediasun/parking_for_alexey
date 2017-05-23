@@ -21,6 +21,8 @@ class ClientTransformer extends TransformerAbstract
             'active'              => (int)$client->active,
 //            'different'           => (bool)$client->different,
 //            'active'              => (bool)$client->active,
+            'created_at'       => $client->created_at,
+            'updated_at'       => $client->updated_at,
         ];
     }
 }
