@@ -112,7 +112,8 @@ Route::group([
 ], function($router) {
 
     // Clients
-    $router->resource('clients', 'ClientsController@index');
+    $router->resource('clients', 'ClientsController');
+    $router->resource('parking', 'ParkingController');
 
 });
 
