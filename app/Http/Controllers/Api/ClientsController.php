@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Client;
+use App\Transformers\ClientTransformer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ClientsController extends Controller
+class ClientsController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::take(10)->get();
+
+        return $this->respondWithCollection($clients, new ClientTransformer);
     }
 
     /**
@@ -46,7 +50,15 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::find($id);
+
+        if (! $client) {
+            return $this->errorNotFound(
+                'Did you just invent an ID and try loading a client?'
+            );
+        }
+
+        return $this->respondWithItem($client, new ClientTransformer);
     }
 
     /**
