@@ -6,36 +6,29 @@ use Closure;
 use Firebase\JWT\JWT;
 use App\Application;
 use Validator;
+
 class ApiAppAuth
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-
-
-		$authToken = $request->bearerToken();
-
+        $authToken = $request->bearerToken();
 
         try {
             // проверка валидности токена
-           $this->payloadIsValid(
+            $this->payloadIsValid(
+                // JWT::decode  принимает строку с токеном первым аргументом
+                // затем ключ, которым закодирован токен и список алгоритмов
+                $payload = (array)JWT::decode($authToken, 'w5yuCV2mQDVTGmn3', ['HS256'])
+            );
 
-
-            // JWT::decode  принимает строку с токеном первым аргументом
-            // затем ключ, которым закодирован токен
-            //  и список алгоритмов
-
-               $payload = (array) JWT::decode($authToken, 'w5yuCV2mQDVTGmn3', ['HS256'])
-
-           );
-
-        $app =  Application::where('key',$payload['sub'])->firstOrFail();
+            $app = Application::where('key', $payload['sub'])->firstOrFail();
 
         } catch (\Firebase\JWT\ExpiredException $e) {
             return response('token_expired', 401);
@@ -43,7 +36,7 @@ class ApiAppAuth
             return response('token_invalid', 401);
         }
 
-        if (! $app->is_active) {
+        if (!$app->is_active) {
             return response('app_inactive', 403);
         }
 
@@ -57,16 +50,12 @@ class ApiAppAuth
 
     private function payloadIsValid($payload)
     {
-
-
-
         $validator = Validator::make($payload, [
             'iss' => 'required|in:interdomus',
             'sub' => 'required',
         ]);
 
-
-        if (! $validator->passes()) {
+        if (!$validator->passes()) {
             throw new \InvalidArgumentException;
         }
     }

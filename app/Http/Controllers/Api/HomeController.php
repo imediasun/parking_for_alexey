@@ -60,6 +60,7 @@ class HomeController extends ApiController
             } else {
                 $id_question = 0;
             }
+
             DB::table('questionaries')->insert(
                 [
                     'text' => $val['question'],
