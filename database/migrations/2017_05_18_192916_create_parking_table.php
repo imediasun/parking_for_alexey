@@ -17,8 +17,8 @@ class CreateParkingTable extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned()->default(1);
             $table->integer('parking_price_id')->unsigned()->default(1);
-            $table->time('check_in_time');
-            $table->time('check_out_time');
+            $table->dateTime('check_in_time');
+            $table->dateTime('check_out_time');
             $table->boolean('cost');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
