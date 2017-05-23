@@ -17,6 +17,15 @@ class ParkingController extends ApiController
         //
     }
 
+    public function saveParking($id)
+    {
+        if ($id) {
+
+        } else {
+
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

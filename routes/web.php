@@ -114,6 +114,7 @@ Route::group([
     // Clients
     $router->resource('clients', 'ClientsController');
     $router->resource('parking', 'ParkingController');
+    $router->post('save/{parking?}', 'ParkingController@save')->name('parking.save');
 
 });
 
