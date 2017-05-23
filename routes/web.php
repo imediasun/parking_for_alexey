@@ -106,14 +106,13 @@ $router->group(['prefix' => 'api/v1'], function ($router) {
 // 23.05.2017
 Route::group([
     'as' => 'api.',
-    'prefix' => 'api',
+    'prefix' => 'api/v1',
     'namespace' => 'Api',
     //'middleware' => ['web','auth']
 ], function($router) {
 
     // Clients
-    $router->get('clients', 'ClientsController@index')->name('clients.index');
-    $router->get('clients/{client}', 'ClientsController@show')->name('clients.show');
+    $router->resource('clients', 'ClientsController@index');
 
 });
 
