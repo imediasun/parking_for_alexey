@@ -19,15 +19,25 @@ class AdminController extends Controller
     protected $title;
     protected $vars;
 
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     *
+     */
     public function index()
     {
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function renderOutput($data)
     {
         /*$this->vars = arry_add($this->vars,'title',$this->title);*/

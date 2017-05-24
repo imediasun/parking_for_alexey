@@ -8,13 +8,23 @@ use Gate;
 use Auth;
 use App\Http\Controllers\MenuController;
 
+/**
+ * Class IndexController
+ * @package App\Http\Controllers\Admin
+ */
 class IndexController extends AdminController
 {
+    /**
+     * IndexController constructor.
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
+    /**
+     * @return mixed
+     */
     public function menu()
     {
         if ($this->user->status == 1) {
@@ -22,6 +32,9 @@ class IndexController extends AdminController
         }
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse|string
+     */
     public function index()
     {
         $this->user = Auth::user();
