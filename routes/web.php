@@ -71,6 +71,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::get('/partners', 'Admin\PertnersController@index');
     Route::get('/add_category', 'Admin\CategoriesController@add_category');
     Route::resource('/customers_managment', 'Admin\CustomersController');
+
+    //Route::resource('clients');
 });
 
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
