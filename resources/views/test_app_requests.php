@@ -118,7 +118,7 @@
         var main = {
             client_id: 1,
             tradecenter_id: 1,
-            check_in_time: currentDate
+            check_out_time: currentDate
         };
 
         var contentType = "application/x-www-form-urlencoded; charset=utf-8";
