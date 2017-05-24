@@ -64,7 +64,7 @@ class IndexController extends AdminController
         }
 
         $data = array();
-        $this->title = 'Панель администратора';
+        $this->title = 'Admin Panel';
 
         return $this->renderOutput($data);
     }

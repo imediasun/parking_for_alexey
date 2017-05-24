@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
+use App\Http\Libraries\Display_lib;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
 
 /**
  * Class AdminController
@@ -40,14 +41,10 @@ class AdminController extends Controller
      */
     public function renderOutput($data)
     {
-        /*$this->vars = arry_add($this->vars,'title',$this->title);*/
+        $data['title'] = "Meta Title";
+        $data['keywords'] = "Meta Keywords";
+        $data['description'] = "Meta Description";
 
-        //передача в вид через Display_Lib
-
-        $data['title'] = "Фрилансим по крупному";
-        $data['keywords'] = "Фрилансим по крупному";
-        $data['description'] = "Фрилансим по крупному";
-
-        return \App\Http\Libraries\Display_lib::admin($this->template, $data);
+        return Display_lib::admin($this->template, $data);
     }
 }
