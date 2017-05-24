@@ -87,7 +87,7 @@ class HomeController extends ApiController
 
         return json_encode([
             'app'   => $request->__authenticatedApp,
-            'pid'   => $objParking,
+//            'pid'   => $objParking,
 //            'ads'   => $ads,
             'error' => $validator->errors(),
         ]);
