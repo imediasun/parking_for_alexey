@@ -1,30 +1,13 @@
-<div class="boxed">
+<div class="content-page">
+    <div class="content">
+        <div class="container">
 
-        <!--CONTENT CONTAINER-->
-        <!--===================================================-->
-        <div id="content-container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
 
-            <div class="pageheader">
-                <h3><i class="fa fa-home"></i> Datatable Table </h3>
-                <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
-                    <ol class="breadcrumb">
-                        <li><a href="#"> Home </a></li>
-                        <li class="active"> datatable Table</li>
-                    </ol>
-                </div>
-            </div>
+                        <h4 class="header-title m-t-0 m-b-30">Client Management</h4>
 
-            <!--Page content-->
-            <!--===================================================-->
-            <div id="page-content">
-
-                <!-- Basic Data Tables -->
-                <!--===================================================-->
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Clients management</h3>
-                    </div>
-                    <div class="panel-body">
                         <table id="demo-dt-basic" class="table table-striped" cellspacing="0" width="100%">
                             <thead>
                             <tr>
@@ -62,32 +45,25 @@
                             </tbody>
 
                         </table>
-                    </div>
-                </div>
-                <!--===================================================-->
-                <!-- End Striped Table -->
 
+                    </div><!-- end card-box -->
+                </div><!-- end col-sm-12 -->
+            </div><!-- end row -->
 
-            </div>
-            <!--===================================================-->
-            <!--End page content-->
+        </div><!-- end container -->
+    </div><!-- end content -->
+</div><!-- end content-page -->
 
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-        </div>
-        <!--===================================================-->
-        <!--END CONTENT CONTAINER-->
-
-
-        <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('.delete_btn').click(function (e) {
-                if (!confirm('Delete this Client?')) {
-                    return false;
-                }
-            });
-        </script>
+    $('.delete_btn').click(function (e) {
+        if (!confirm('Delete this Client?')) {
+            return false;
+        }
+    });
+</script>

@@ -3,24 +3,14 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Datatable | Jasmine - Responsive admin template.</title>
     <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
 
-    <!--STYLESHEET-->
-    <!--=================================================-->
-
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
-
-
-
-
-
-
 
     <link href="/css/style_admin.css" rel="stylesheet">
 
