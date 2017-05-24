@@ -99,6 +99,8 @@ $router->group(['prefix' => 'api/v1'], function ($router) {
 
     // Тестовые  маршруты
     $router->post('/application-data', 'Api\HomeController@appData')->middleware('auth.api.app');
+    $router->post('/app/check_in_time', 'Api\HomeController@checkInTime')->middleware('auth.api.app');
+    $router->post('/app/check_out_time', 'Api\HomeController@checkOutTime')->middleware('auth.api.app');
     $router->get('/user-data', 'Api\HomeController@userData');
 });
 
@@ -123,3 +125,4 @@ $router->get('/authorize', 'HomeController@showAuthorizationForm')->middleware('
 $router->post('/authorize', 'HomeController@authorizeApp')->middleware('web');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/test_app_requests', 'TestAppRequests@index');
