@@ -84,6 +84,13 @@ class AdminCategoriesTableSeeder extends Seeder
                 'icon'      => 'fa-envelope',
                 'link'      => '/admin/edit_adv_section/edit_adv',
             ],
+            [
+                'parent_id' => 6,
+                'name'      => 'Client management',
+                'icon'      => 'fa-envelope',
+                'link'      => '/admin/clients',
+            ],
+
         ]);
 
         DB::table('center_admin_categories')->insert([

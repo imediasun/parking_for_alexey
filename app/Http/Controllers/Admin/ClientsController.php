@@ -39,11 +39,8 @@ class ClientsController extends IndexController
 
         $data['content']['clients'] = Client::get();
 
-        //dd($data['content']['clients']);
-
-        $this->title = 'Панель администратора';
         $data['nav']['menu'] = parent::menu();
-        $this->template = 'admin_page/clients';
+        $this->template = 'admin_page/clients/index';
 
         return $this->renderOutput($data);
     }
@@ -83,24 +80,38 @@ class ClientsController extends IndexController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param Client $client
+     * @return string
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        $this->user = Auth::user();
+
+        if (Gate::denies('VIEW_ADMIN')) {
+            abort(403);
+        }
+
+        $data['content']['client'] = $client;
+
+        $data['nav']['menu'] = parent::menu();
+        $this->template = 'admin_page/clients/edit';
+
+        return $this->renderOutput($data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Client $client
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        // TODO: validation
+        $client->update($request->all());
+
+        return redirect()->route('admin.clients.index');
     }
 
     /**
@@ -124,7 +135,6 @@ class ClientsController extends IndexController
     {
         $client->delete();
 
-        return redirect()
-            ->route('admin.clients.index');
+        return redirect()->route('admin.clients.index');
     }
 }
