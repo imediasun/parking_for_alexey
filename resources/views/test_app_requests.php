@@ -8,32 +8,39 @@
 </head>
 <body>
 
-<button class="btn_ajax1">Регистрация</button>
 <script>
-    //base64_encode('111222333:aaabbbccc');
-    // Result: MTExMjIyMzMzOmFhYWJiYmNjYw==
-    $('.btn_ajax1').click(function () {
-        $.ajaxSetup({
+    var domain = 'http://parking_for_alexey.dev';
+</script>
 
+<button class="btn_ajax_registration">Регистрация</button>
+<script>
+
+    // base64_encode('111222333:aaabbbccc');
+    // Result: MTExMjIyMzMzOmFhYWJiYmNjYw==
+
+    $('.btn_ajax_registration').click(function () {
+        $.ajaxSetup({
             headers: {
                 'Authorization': 'Basic MTExMjIyMzMzOmFhYWJiYmNjYw=='
             }
         });
+
         var main = {
             first_name: "Alex224",
             last_name: "Zwanetski",
             street_house_number: "Arnulfstraße 3, 80335 München",
-            email: "info@test.de",
+            email: "info@test2.de",
             telephone: "0176123456",
         };
 
         var contentType = "application/x-www-form-urlencoded; charset=utf-8";
 
-        if (window.XDomainRequest) //for IE8,IE9
+        if (window.XDomainRequest) { //for IE8,IE9
             contentType = "text/plain";
+        }
 
         $.ajax({
-            url: "http://parking.imedia.in.ua/api/v1/auth/app", ///для регистрации
+            url: domain + "/api/v1/auth/app", //для регистрации
             type: "POST",
             data: {main: main},
             dataType: "json",
@@ -80,7 +87,7 @@
         }
 
         $.ajax({
-            url: "http://parking_for_alexey.dev/api/v1/app/check_in_time",
+            url: domain + "/api/v1/app/check_in_time",
             type: "POST",
             data: {main: main},
             dataType: "json",
@@ -128,7 +135,7 @@
         }
 
         $.ajax({
-            url: "http://parking_for_alexey.dev/api/v1/app/check_out_time",
+            url: domain + "/api/v1/app/check_out_time",
             type: "POST",
             data: {main: main},
             dataType: "json",

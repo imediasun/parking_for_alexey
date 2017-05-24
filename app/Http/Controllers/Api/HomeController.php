@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Adv;
+use App\Client;
 use App\Parking;
+use DB;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Client;
-use DB;
-use App\Question;
 
 class HomeController extends ApiController
 {
@@ -20,34 +20,32 @@ class HomeController extends ApiController
     {
         $main = $request->input('main');
 
-        /*
-        DB::table('clients')->insert(
-            [
-                'company_name'                => $main['company_name'],
-                'first_name'                  => $main['first_name'],
-                'last_name'                   => $main['last_name'],
-                'street_house_number'         => $main['street_house_number'],
-                'zip_code'                    => $main['zip_code'],
-                'city'                        => $main['city'],
-                'different'                   => ($main['different'] == 'true') ? 1 : 0,
-                'active'                      => $main['active'],
-                'install_street_house_number' => $main['install_street_house_number'],
-                'install_zip_code'            => $main['install_zip_code'],
-                'install_city'                => $main['install_city'],
-                'email'                       => $main['email'],
-                'telephone'                   => $main['telephone'],
-                'reachability'                => $main['reachability'],
-                'service'                     => $main['service'],
-                'comments'                    => $main['comments'],
-                'comments_hidden'             => ($main['comments_hidden'] == 'true') ? 1 : 0,
-            ]
-        );
-        */
+        $objClient = Client::create([
+            'company_name'                => $main['company_name'],
+            'first_name'                  => $main['first_name'],
+            'last_name'                   => $main['last_name'],
+            'street_house_number'         => $main['street_house_number'],
+            'zip_code'                    => $main['zip_code'],
+            'city'                        => $main['city'],
+            'different'                   => ($main['different'] == 'true') ? 1 : 0,
+            'active'                      => $main['active'],
+            'install_street_house_number' => $main['install_street_house_number'],
+            'install_zip_code'            => $main['install_zip_code'],
+            'install_city'                => $main['install_city'],
+            'email'                       => $main['email'],
+            'telephone'                   => $main['telephone'],
+            'reachability'                => $main['reachability'],
+            'service'                     => $main['service'],
+            'comments'                    => $main['comments'],
+            'comments_hidden'             => ($main['comments_hidden'] == 'true') ? 1 : 0,
+        ]);
 
         //получить последний id из таблицы clients
 
-
-        return $request->__authenticatedApp;
+        return json_encode([
+            'app'       => $request->__authenticatedApp,
+            'client_id' => $objClient->id,
+        ]);
     }
 
     /**
@@ -55,8 +53,10 @@ class HomeController extends ApiController
      * @param Request $request
      * @return string
      */
-    public function checkInTime(Request $request)
-    {
+    public
+    function checkInTime(
+        Request $request
+    ) {
         $data = $request->input('main');
 
         // Transform
@@ -68,7 +68,7 @@ class HomeController extends ApiController
             'check_in_time' => 'date_format:"Y-m-d H:i:s"|required',
         ]);
 
-        if (! $validator->fails()) {
+        if (!$validator->fails()) {
             $objParking = Parking::create([
                 'client_id'        => $data['client_id'],
                 'parking_price_id' => 2,
@@ -98,8 +98,10 @@ class HomeController extends ApiController
      * @param Request $request
      * @return string
      */
-    public function checkOutTime(Request $request)
-    {
+    public
+    function checkOutTime(
+        Request $request
+    ) {
         $data = $request->input('main');
 
         // Transform
@@ -116,12 +118,12 @@ class HomeController extends ApiController
                 ->where('on_parking', 1)
                 ->where('client_id', $data['client_id'])
                 ->update([
-                    'parking_price_id' => 2,
-                    'check_out_time'   => $check_out_time,
-                    'on_parking'       => 0,
-                    'cost'             => 0,
-                ]
-            );
+                        'parking_price_id' => 2,
+                        'check_out_time'   => $check_out_time,
+                        'on_parking'       => 0,
+                        'cost'             => 0,
+                    ]
+                );
         }
 
         return json_encode([
