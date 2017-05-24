@@ -68,8 +68,9 @@
 
         //var d = new Date("October 13, 2014 11:13:00");
         var main = {
-            check_in_time: currentDate,
-            tradecenter_id: 1
+            client_id: 1,
+            tradecenter_id: 1,
+            check_in_time: currentDate
         };
 
         var contentType = "application/x-www-form-urlencoded; charset=utf-8";
@@ -115,8 +116,9 @@
 
         //var d = new Date("October 13, 2014 11:13:00");
         var main = {
-            check_out_time: currentDate,
-            tradecenter_id: 1
+            client_id: 1,
+            tradecenter_id: 1,
+            check_in_time: currentDate
         };
 
         var contentType = "application/x-www-form-urlencoded; charset=utf-8";

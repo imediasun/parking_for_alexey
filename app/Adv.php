@@ -25,4 +25,14 @@ class Adv extends Model
         'image_large',
         'thumbnail',
     ];
+
+    /**
+     * Parkings of Ad
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function parkings()
+    {
+        return $this->belongsToMany(Parking::class, 'parking_adv', 'adv_id', 'parking_id');
+    }
 }

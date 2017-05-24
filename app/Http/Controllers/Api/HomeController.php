@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Adv;
+use App\Parking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Client;
@@ -67,18 +69,25 @@ class HomeController extends ApiController
         ]);
 
         if (! $validator->fails()) {
-            DB::table('parking')->insert([
-                    'client_id'        => 1,
-                    'parking_price_id' => 2,
-                    'check_in_time'    => $check_in_time,
-                    'check_out_time'   => $check_in_time,
-                    'cost'             => 0,
-                ]
-            );
+            $objParking = Parking::create([
+                'client_id'        => $data['client_id'],
+                'parking_price_id' => 2,
+                'check_in_time'    => $check_in_time,
+                'check_out_time'   => $check_in_time,
+                'cost'             => 0,
+            ]);
+
+//            $obj = Parking::where('id', $objParking->id)
+//                ->where('client_id', $client_id)
+//                ->first();
+
+//            $ads = $obj->ads->all();
         }
 
         return json_encode([
             'app'   => $request->__authenticatedApp,
+//            'pid'   => $objParking->id,
+//            'ads'   => $ads,
             'error' => $validator->errors(),
         ]);
     }
@@ -103,7 +112,7 @@ class HomeController extends ApiController
 
         if (!$validator->fails()) {
             DB::table('parking')->update([
-                    'client_id'        => 1,
+                    'client_id'        => $data['client_id'],
                     'parking_price_id' => 2,
                     'check_out_time'   => $check_out_time,
                     'cost'             => 0,

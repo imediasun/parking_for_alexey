@@ -12,4 +12,25 @@ class Parking extends Model
      * @var string
      */
     protected $table = 'parking';
+
+    /**
+     * @var array  fields to save
+     */
+    protected $fillable = [
+        'client_id',
+        'parking_price_id',
+        'check_in_time',
+        'check_out_time',
+        'cost',
+    ];
+
+    /**
+     * Ads of Parking
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function ads()
+    {
+        return $this->belongsToMany(Adv::class, 'parking_adv', 'parking_id', 'adv_id');
+    }
 }
