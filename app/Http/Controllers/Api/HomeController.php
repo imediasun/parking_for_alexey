@@ -71,7 +71,7 @@ class HomeController extends ApiController
         if (!$validator->fails()) {
             $objParking = Parking::create([
                 'client_id'        => $data['client_id'],
-                'parking_price_id' => 2,
+                //'parking_price_id' => 2,
                 'check_in_time'    => $check_in_time,
                 'check_out_time'   => $check_in_time,
                 'on_parking'       => 1,
@@ -118,7 +118,7 @@ class HomeController extends ApiController
                 ->where('on_parking', 1)
                 ->where('client_id', $data['client_id'])
                 ->update([
-                        'parking_price_id' => 2,
+                        //'parking_price_id' => 2,
                         'check_out_time'   => $check_out_time,
                         'on_parking'       => 0,
                         'cost'             => 0,

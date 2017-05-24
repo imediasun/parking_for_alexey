@@ -12,7 +12,7 @@ class ParkingTransformer extends TransformerAbstract
         return [
             'id'               => (int)$parking->id,
             'client_id'        => (int)$parking->client_id,
-            'parking_price_id' => (int)$parking->parking_price_id,
+            //'parking_price_id' => (int)$parking->parking_price_id,
             'check_in_time'    => $parking->check_in_time,
             'check_out_time'   => $parking->check_in_time,
             'cost'             => $parking->cost,
