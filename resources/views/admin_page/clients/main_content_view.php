@@ -1,158 +1,93 @@
 <div class="boxed">
 
-    <!--CONTENT CONTAINER-->
-    <!--===================================================-->
-    <div id="content-container">
-
-        <div class="pageheader">
-            <h3><i class="fa fa-home"></i> Datatable Table </h3>
-            <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
-                <ol class="breadcrumb">
-                    <li><a href="#"> Home </a></li>
-                    <li class="active"> datatable Table</li>
-                </ol>
-            </div>
-        </div>
-
-        <!--Page content-->
+        <!--CONTENT CONTAINER-->
         <!--===================================================-->
-        <div id="page-content">
+        <div id="content-container">
 
-            <!-- Basic Data Tables -->
-            <!--===================================================-->
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">User management</h3>
+            <div class="pageheader">
+                <h3><i class="fa fa-home"></i> Datatable Table </h3>
+                <div class="breadcrumb-wrapper"><span class="label">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li><a href="#"> Home </a></li>
+                        <li class="active"> datatable Table</li>
+                    </ol>
                 </div>
-                <div class="panel-body">
-                    <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th class="min-tablet">Role</th>
-                            <th class="min-tablet">Date of registration</th>
-                            <th class="min-desktop">Delete</th>
-                            <th class="min-desktop">Active</th>
-                        </tr>
-                        </thead>
+            </div>
 
-                        <tbody>
-                        <?php
-                        foreach ($users as $user) {
-                            ?>
+            <!--Page content-->
+            <!--===================================================-->
+            <div id="page-content">
+
+                <!-- Basic Data Tables -->
+                <!--===================================================-->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Clients management</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table id="demo-dt-basic" class="table table-striped" cellspacing="0" width="100%">
+                            <thead>
                             <tr>
-                                <td><?php echo $user['original']['name']; ?></td>
-                                <td><?php echo $user['original']['email']; ?></td>
-                                <td width="250px">
-                                    <input type="hidden" class="user_id" name="user_id"
-                                           value="<?php echo $user['original']['id']; ?>">
-                                    <select style="width:250px;height:30px" class="stl">
-                                        <?php foreach ($roles as $role) {
-                                            $st = isset($user->roles['0']) ? $user->roles['0'] : false;
-
-                                            if ($st) {
-                                                if ($user->roles['0']['original']['id'] == $role['original']['id']) {
-                                                    ?>
-                                                    <option selected value=" <?php echo $role['original']['id'] ?>"><?php echo $role['original']['name'] ?></option>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <option value="<?php echo $role['original']['id'] ?>"> <? echo $role['original']['name'] ?></option>
-                                                    <?php
-                                                }
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </td>
-                                <td><?php echo $user['original']['created_at']; ?></td>
-                                <td>
-                                    <input type="hidden" class="user_id" name="user_id"
-                                           value="<?php echo $user['original']['id']; ?>">
-                                    <button class="delete_btn btn btn-danger btn-icon icon-lg fa fa-times"></button>
-                                </td>
-                                <td>
-                                    <?php
-                                    if ($user['original']['activated'] == 1) {
-                                        echo 'Activated';
-                                    } else {
-                                        echo 'Not Activated';
-                                    }
-                                    ?>
-                                </td>
+                                <th>Client Name</th>
+                                <th class="min-tablet">Created</th>
+                                <th class="min-desktop">Active</th>
+                                <th class="min-desktop">Actions</th>
                             </tr>
-                            <?php
-                        }
-                        ?>
-                        </tbody>
+                            </thead>
 
-                    </table>
+                            <tbody>
+                            <?php
+                            foreach ($clients as $client) {
+                                ?>
+                                <tr>
+                                    <td><?= $client->first_name . ' ' . $client->last_name; ?></td>
+                                    <td><?= $client->created_at ?></td>
+                                    <td><?= $client->active ? 'Active' : 'No Active' ?></td>
+                                    <td>
+                                        <a class="btn btn-primary btn-icon fa fa-edit"
+                                           href="<?= route('admin.clients.edit', ['id' => $client->id]) ?>"
+                                           data-toggle="tooltip"
+                                           data-original-title="Edit"
+                                        ></a>
+                                        <a class="delete_btn btn btn-danger btn-icon fa fa-times"
+                                           href="<?= route('admin.clients.delete', ['id' => $client->id]) ?>"
+                                           data-toggle="tooltip"
+                                           data-original-title="Delete"
+                                        ></a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+
+                        </table>
+                    </div>
                 </div>
+                <!--===================================================-->
+                <!-- End Striped Table -->
+
+
             </div>
             <!--===================================================-->
-            <!-- End Striped Table -->
+            <!--End page content-->
 
 
         </div>
         <!--===================================================-->
-        <!--End page content-->
+        <!--END CONTENT CONTAINER-->
 
 
-    </div>
-    <!--===================================================-->
-    <!--END CONTENT CONTAINER-->
-
-
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('.stl option').click(function () {
-
-            var role = $(this).val()
-            var user = $(this).parent('.stl').parent('td').find('.user_id').val();
-
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: '/admin/func_update_role',
-                data: {role: role, user: user}, // serializes the form's elements.
-                success: function (data) {
-                    alert(data); // show response from the php script.
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        });
 
-        $('.delete_btn').click(function () {
-
-            var txt;
-            var r = confirm("Видалити користувача ?");
-
-            if (r == true) {
-                var user = $(this).parent('td').find('.user_id').val();
-
-                $.ajax({
-                    type: "POST",
-                    dataType: 'json',
-                    url: '/admin/func_delete_user',
-                    data: {user: user}, // serializes the form's elements.
-                    success: function (data) {
-
-                        if (data == 'deleted') {
-                            alert('користувач видален'); // show response from the php script.}
-                        } else {
-                            alert('помилка !')
-                        }
-                        location.reload();
-                    }
-
-                });
-            } else {
-                txt = "Ви вибрали відмінити видалення";
-            }
-        });
-    </script>
+            $('.delete_btn').click(function (e) {
+                if (!confirm('Delete this Client?')) {
+                    return false;
+                }
+            });
+        </script>

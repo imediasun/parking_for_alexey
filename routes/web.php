@@ -32,7 +32,7 @@ Route::get('/not_yours', function () {
 
 Route::get('/logout', ['uses' => 'Admin\IndexController@index', 'as' => 'adminIndex']);
 
-//admin
+//Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
 
     Route::get('/add_trade_center', 'Admin\TradeCenterController@index');
@@ -71,8 +71,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::get('/partners', 'Admin\PertnersController@index');
     Route::get('/add_category', 'Admin\CategoriesController@add_category');
     Route::resource('/customers_managment', 'Admin\CustomersController');
+});
 
-    //Route::resource('clients');
+// Admin
+// 24.05.2017 (new route group)
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+
+    Route::resource('clients', 'Admin\ClientsController');
+    Route::get('clients/{clients}/delete', ['as' => 'clients.delete', 'uses' => 'Admin\ClientsController@delete']);
+
 });
 
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
