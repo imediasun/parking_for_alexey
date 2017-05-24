@@ -72,10 +72,10 @@ class HomeController extends ApiController
             $objParking = Parking::create([
                 'client_id'        => $data['client_id'],
                 'parking_price_id' => 2,
-                'on_parking'       => 1,
                 'check_in_time'    => $check_in_time,
                 'check_out_time'   => $check_in_time,
-                'cost'             => 5,
+                'on_parking'       => 1,
+                'cost'             => 0,
             ]);
 
 //            $obj = Parking::where('id', $objParking->id)
@@ -87,7 +87,7 @@ class HomeController extends ApiController
 
         return json_encode([
             'app'   => $request->__authenticatedApp,
-//            'pid'   => $objParking->id,
+            'pid'   => $objParking,
 //            'ads'   => $ads,
             'error' => $validator->errors(),
         ]);

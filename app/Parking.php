@@ -21,6 +21,7 @@ class Parking extends Model
         'parking_price_id',
         'check_in_time',
         'check_out_time',
+        'on_parking',
         'cost',
     ];
 
