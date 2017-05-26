@@ -37,7 +37,7 @@ class ClientsController extends IndexController
             abort(403);
         }
 
-        $data['content']['clients'] = Client::get();
+        $data['content']['clients'] = Client::all();
 
         $data['nav']['menu'] = parent::menu();
         $this->template = 'admin_page/clients/index';
