@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Gate;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'facebook_id', 'name', 'email', 'password',
+        'facebook_id',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -24,71 +28,48 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
-    public function roles(){
-        return $this->belongsToMany('App\Role','role_user');
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'role_user');
     }
 
-    public function status(){
+    public function status()
+    {
         return $this->hasOne('App\Customers_statuses');
     }
 
-    public function tradecentre(){
-        return $this->belongsToMany('App\Tradecentre','user_id');
+    public function tradecentre()
+    {
+        return $this->belongsToMany('App\Tradecentre', 'user_id');
     }
-    
 
-    public function canDo($permission, $require = FALSE){
+    public function canDo($permission, $require = false)
+    {
+        if (is_array($permission)) {
 
-
-        
-        if(is_array($permission)){
-
-            foreach ($permission as $permi){
-            foreach($this->roles as $role){
-                foreach($role->perms as $perm){
-
-                    if(str_is($permi,$perm->name)){
-
-                        return TRUE;
-                    }
-                    else{
-
-
+            foreach ($permission as $permi) {
+                foreach ($this->roles as $role) {
+                    foreach ($role->perms as $perm) {
+                        if (str_is($permi, $perm->name)) {
+                            return true;
+                        } else {
+                        }
                     }
                 }
             }
-        }    
-            
-        }
-        else{
-            foreach($this->roles as $role){
-                foreach($role->perms as $perm){
 
-                    if(str_is($permission,$perm->name)){
-
-                        return TRUE;
+        } else {
+            foreach ($this->roles as $role) {
+                foreach ($role->perms as $perm) {
+                    if (str_is($permission, $perm->name)) {
+                        return true;
                     }
                 }
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
