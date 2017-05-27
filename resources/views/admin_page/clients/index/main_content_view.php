@@ -4,6 +4,15 @@
 
             <div class="row">
                 <div class="col-sm-12">
+
+                    <?php if (session('success')): ?>
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p><strong><i class="fa fa-check-circle fa-fw"></i> Success.</strong></p>
+                            <p><?= session('success') ?></p>
+                        </div>
+                    <?php endif ?>
+
                     <div class="card-box">
 
                         <h4 class="header-title m-t-0 m-b-30">Client Management</h4>

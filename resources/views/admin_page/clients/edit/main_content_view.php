@@ -4,6 +4,16 @@
 
             <div class="row">
                 <div class="col-sm-12">
+
+                    <?php if (count($errors) > 0): ?>
+                        <div class="alert alert-danger">
+                            <p><strong><i class="fa fa-exclamation-circle fa-fw"></i> Errors!</strong></p>
+                            <?php foreach ($errors->all() as $error): ?>
+                                <p><i class="fa fa-caret-right fa-fw"></i> <?= $error ?></p>
+                            <?php endforeach ?>
+                        </div>
+                    <?php endif ?>
+
                     <div class="card-box">
 
                         <h4 class="header-title m-t-0 m-b-30">Edit Client</h4>
@@ -17,13 +27,13 @@
                                     <input name="company_name" type="text" class="form-control" value="<?= $client->company_name ?>">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group<?= $errors->has('first_name') ? ' has-error' : '' ?>">
                                 <label class="col-md-2 control-label">First Name</label>
                                 <div class="col-md-10">
                                     <input name="first_name" type="text" class="form-control" value="<?= $client->first_name ?>">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group<?= $errors->has('last_name') ? ' has-error' : '' ?>">
                                 <label class="col-md-2 control-label">Last Name</label>
                                 <div class="col-md-10">
                                     <input name="last_name" type="text" class="form-control" value="<?= $client->last_name ?>">

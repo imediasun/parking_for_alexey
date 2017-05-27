@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Client;
+use App\Http\Requests\ClientFormRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -102,16 +103,15 @@ class ClientsController extends IndexController
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ClientFormRequest $request
      * @param Client $client
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Client $client)
+    public function update(ClientFormRequest $request, Client $client)
     {
-        // TODO: validation
         $client->update($request->all());
 
-        return redirect()->route('admin.clients.index');
+        return redirect()->route('admin.clients.index', [$client])->withSuccess('Client updated.');
     }
 
     /**
@@ -135,6 +135,6 @@ class ClientsController extends IndexController
     {
         $client->delete();
 
-        return redirect()->route('admin.clients.index');
+        return redirect()->route('admin.clients.index')->withSuccess('Client deleted.');
     }
 }
