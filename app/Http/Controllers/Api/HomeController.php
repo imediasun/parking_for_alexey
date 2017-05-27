@@ -9,6 +9,7 @@ use DB;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends ApiController
 {
@@ -64,6 +65,10 @@ class HomeController extends ApiController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function registration(Request $request)
     {
         $main = $request->input('main');
@@ -105,37 +110,66 @@ class HomeController extends ApiController
     {
         $data = $request->input('main');
 
+        $response = [
+            'app'   => $request->__authenticatedApp,
+            'ad'    => [],
+            'error' => [],
+        ];
+
+        // If the entry was already
+        $objParking = Parking::where([
+            'client_id'      => $data['client_id'],
+            'tradecentre_id' => $data['tradecentre_id'],
+            'on_parking'     => 1,
+        ])->first();
+
+        if ($objParking) {
+            $response['error'] = ['check_in_time' => ['Check-in time fixed.']];
+
+            return json_encode($response);
+        }
+
         // Transform
         $check_in_time = array_get($data, 'check_in_time');
         $check_in_time = date('Y-m-d H:i:s', strtotime($check_in_time));
         $data['check_in_time'] = $check_in_time;
 
-        $validator = \Validator::make($data, [
+        // If new entry
+        $validator = Validator::make($data, [
             'check_in_time' => 'date_format:"Y-m-d H:i:s"|required',
         ]);
 
         if (!$validator->fails()) {
-            $objParking = Parking::create([
-                'client_id'      => $data['client_id'],
+            Parking::create([
+                'client_id'      => array_get($data, 'client_id'),
+                'tradecentre_id' => array_get($data, 'tradecentre_id'),
                 'check_in_time'  => $check_in_time,
                 'check_out_time' => $check_in_time,
                 'on_parking'     => 1,
                 'cost'           => 0,
             ]);
 
-//            $obj = Parking::where('id', $objParking->id)
-//                ->where('client_id', $client_id)
-//                ->first();
+            // TODO: move to model
+            // Get Random Ad
+            $arrAds = Adv::where('tradecentre_id', $data['tradecentre_id'])->get()->toArray();
+            shuffle($arrAds);
+            $response['ad'] = [
+                'id'                => $arrAds[0]['id'],
+                'title'             => $arrAds[0]['title'],
+                'short_description' => $arrAds[0]['short_description'],
+                'large_description' => $arrAds[0]['large_description'],
+                'image_small'       => '/photos/' . $arrAds[0]['image_small'],
+                'image_medium'      => '/photos/' . $arrAds[0]['image_medium'],
+                'image_large'       => '/photos/' . $arrAds[0]['image_large'],
+                'thumbnail'         => '/photos/' . $arrAds[0]['thumbnail'],
+            ];
 
-//            $ads = $obj->ads->all();
+            return json_encode($response);
         }
 
-        return json_encode([
-            'app'   => $request->__authenticatedApp,
-//            'pid'   => $objParking,
-//            'ads'   => $ads,
-            'error' => $validator->errors(),
-        ]);
+        $response['error'] = $validator->errors();
+
+        return json_encode($response);
     }
 
     /**
@@ -147,30 +181,57 @@ class HomeController extends ApiController
     {
         $data = $request->input('main');
 
+        $response = [
+            'app'   => $request->__authenticatedApp,
+            'ad'    => [],
+            'error' => [],
+        ];
+
         // Transform
         $check_out_time = array_get($data, 'check_out_time');
         $check_out_time = date('Y-m-d H:i:s', strtotime($check_out_time));
         $data['check_out_time'] = $check_out_time;
 
-        $validator = \Validator::make($data, [
+        $validator = Validator::make($data, [
             'check_out_time' => 'date_format:"Y-m-d H:i:s"|required',
         ]);
 
         if (!$validator->fails()) {
-            DB::table('parking')
-                ->where('on_parking', 1)
-                ->where('client_id', $data['client_id'])
+            $isUpdated = Parking::where('on_parking', 1)
+                ->where('client_id', array_get($data, 'client_id'))
+                ->where('tradecentre_id', array_get($data, 'tradecentre_id'))
                 ->update([
-                        'check_out_time' => $check_out_time,
-                        'on_parking'     => 0,
-                        'cost'           => 0,
-                    ]
-                );
+                    'check_out_time' => $check_out_time,
+                    'on_parking'     => 0,
+                    'cost'           => 0,
+                ]);
+
+            if ($isUpdated) {
+                // TODO: move to model
+                // Get Random Ad
+                $arrAds = Adv::where('tradecentre_id', $data['tradecentre_id'])->get()->toArray();
+                shuffle($arrAds);
+                $response['ad'] = [
+                    'id'                => $arrAds[0]['id'],
+                    'title'             => $arrAds[0]['title'],
+                    'short_description' => $arrAds[0]['short_description'],
+                    'large_description' => $arrAds[0]['large_description'],
+                    'image_small'       => '/photos/' . $arrAds[0]['image_small'],
+                    'image_medium'      => '/photos/' . $arrAds[0]['image_medium'],
+                    'image_large'       => '/photos/' . $arrAds[0]['image_large'],
+                    'thumbnail'         => '/photos/' . $arrAds[0]['thumbnail'],
+                ];
+
+                return json_encode($response);
+            } else {
+                $response['error'] = ['check_out_time' => ['Check-out time fixed.']];
+            }
+
+            return json_encode($response);
         }
 
-        return json_encode([
-            'app'   => $request->__authenticatedApp,
-            'error' => $validator->errors(),
-        ]);
+        $response['error'] = $validator->errors();
+
+        return json_encode($response);
     }
 }

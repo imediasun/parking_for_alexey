@@ -18,6 +18,7 @@ class Parking extends Model
      */
     protected $fillable = [
         'client_id',
+        'tradecentre_id',
         'check_in_time',
         'check_out_time',
         'on_parking',

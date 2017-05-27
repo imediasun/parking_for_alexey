@@ -162,7 +162,7 @@
         //var d = new Date("October 13, 2014 11:13:00");
         var main = {
             client_id: 1,
-            tradecenter_id: 1,
+            tradecentre_id: 1,
             check_in_time: currentDate
         };
 
@@ -210,7 +210,7 @@
         //var d = new Date("October 13, 2014 11:13:00");
         var main = {
             client_id: 1,
-            tradecenter_id: 1,
+            tradecentre_id: 1,
             check_out_time: currentDate
         };
 
