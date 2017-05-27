@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Client;
-use App\Http\Requests\ClientFormRequest;
+use App\Adv;
 use Illuminate\Http\Request;
 use Auth;
 use Gate;
 
+
 /**
- * Class ClientsController
+ * Class AdsController
  * @package App\Http\Controllers\Admin
  */
-class ClientsController extends IndexController
+class AdsController extends IndexController
 {
     /**
      * ClientsController constructor.
@@ -37,12 +37,13 @@ class ClientsController extends IndexController
             abort(403);
         }
 
-        $data['content']['clients'] = Client::all();
+        $data['content']['ads'] = Adv::all();
 
         $data['nav']['menu'] = parent::menu();
-        $this->template = 'admin_page/clients/index';
+        $this->template = 'admin_page/ads/index';
 
         return $this->renderOutput($data);
+
     }
 
     /**
@@ -58,7 +59,7 @@ class ClientsController extends IndexController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -69,7 +70,7 @@ class ClientsController extends IndexController
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -80,45 +81,30 @@ class ClientsController extends IndexController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Client $client
-     * @return string
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
-        $this->user = Auth::user();
-
-        if (Gate::denies('VIEW_ADMIN')) {
-            abort(403);
-        }
-
-        $data['content']['client'] = $client;
-
-        $data['nav']['menu'] = parent::menu();
-        $this->template = 'admin_page/clients/edit';
-
-        return $this->renderOutput($data);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param ClientFormRequest $request
-     * @param Client $client
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(ClientFormRequest $request, Client $client)
+    public function update(Request $request, $id)
     {
-        $client->update($request->all());
-
-        return redirect()
-            ->route('admin.clients.index', [$client])
-            ->withSuccess('Client updated.');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -127,17 +113,17 @@ class ClientsController extends IndexController
     }
 
     /**
-     * Delete Client
+     * Delete Ad
      *
-     * @param Client $client
+     * @param Adv $ad
      * @return mixed
      */
-    public function delete(Client $client)
+    public function delete(Adv $ad)
     {
-        $client->delete();
+        $ad->delete();
 
         return redirect()
-            ->route('admin.clients.index')
-            ->withSuccess('Client deleted.');
+            ->route('admin.ads.index')
+            ->withSuccess('Ad deleted.');
     }
 }

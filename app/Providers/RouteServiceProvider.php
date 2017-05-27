@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Adv;
 use App\Client;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -25,6 +26,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::model('clients', Client::class);
+        Route::model('ads', Adv::class);
 
         parent::boot();
     }

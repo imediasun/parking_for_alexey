@@ -27,6 +27,14 @@ class Adv extends Model
     ];
 
     /**
+     * Get the rubric that owns the article.
+     */
+    public function tradecentre()
+    {
+        return $this->belongsTo(Tradecentre::class);
+    }
+
+    /**
      * Parkings of Ad
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
