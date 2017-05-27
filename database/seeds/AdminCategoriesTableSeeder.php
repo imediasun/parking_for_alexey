@@ -74,7 +74,7 @@ class AdminCategoriesTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 7,
-                'name'      => 'Ad management',
+                'name'      => 'Ads management',
                 'icon'      => 'fa-envelope',
                 'link'      => '/admin/ads',
             ],

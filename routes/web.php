@@ -80,6 +80,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['web', 'au
     Route::resource('clients', 'Admin\ClientsController');
     Route::get('clients/{clients}/delete', ['as' => 'clients.delete', 'uses' => 'Admin\ClientsController@delete']);
 
+    // TODO: create, edit, validation ad
     Route::resource('ads', 'Admin\AdsController');
     Route::get('ads/{ads}/delete', ['as' => 'ads.delete', 'uses' => 'Admin\AdsController@delete']);
 });
