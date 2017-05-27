@@ -72,4 +72,16 @@ class User extends Authenticatable
             }
         }
     }
+
+    public function generateAuthToken(Application $app)
+    {
+        $jwt = JWT::encode([
+            'iss' => $app->key,
+            'sub' => $this->email,
+            'iat' => time(),
+            'jti' => sha1($app->key.$this->email.time()),
+        ], 'w5yuCV2mQDVTGmn3');
+
+        return $jwt;
+    }
 }

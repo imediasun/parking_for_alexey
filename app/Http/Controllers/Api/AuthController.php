@@ -32,7 +32,23 @@ class AuthController extends Controller
         ]);
     }
 
-    public function authenticateUser(Request $request){}
+    public function authenticateUser(Request $request)
+    {
+        $code = $request->json('code');
+
+        $app = $request->__authenticatedApp;
+
+        if (! $code || ! $user = $app->users()->wherePivot('Authorization_code', $code)->first()) {
+            return response('invalid_code', 400);
+        }
+
+        $app->users()->updateExistingPivot($user->id, ['Authorization_code' => null]);
+
+        return response([
+            'token_type' => 'Bearer',
+            'access_token' => $user->generateAuthToken($app),
+        ]);
+    }
 
     public function logoutUser(Request $request){}
 }

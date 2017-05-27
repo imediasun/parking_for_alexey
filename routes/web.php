@@ -113,8 +113,14 @@ $router->group(['prefix' => 'api/v1'], function ($router) {
     $router->post('/application-data', 'Api\HomeController@appData')->middleware('auth.api.app');
     $router->post('/app/check_in_time', 'Api\HomeController@checkInTime')->middleware('auth.api.app');
     $router->post('/app/check_out_time', 'Api\HomeController@checkOutTime')->middleware('auth.api.app');
-    $router->get('/user-data', 'Api\HomeController@userData');
+    $router->post('/app/registration', 'Api\HomeController@registration')->middleware('auth.api.app');
+
+    $router->get('/user-data', 'Api\HomeController@appData')->middleware('auth.api.user');
 });
+
+// авторизация приложения для доступа к данным пользователя...
+$router->get('/authorize', 'HomeController@showAuthorizationForm')->middleware('web');
+$router->post('/authorize', 'HomeController@authorizeUser')->middleware('web');
 
 // -----------------------------------------------------------
 // 23.05.2017
@@ -130,11 +136,6 @@ $router->group(['prefix' => 'api/v1'], function ($router) {
     $router->resource('parking', 'ParkingController');
 
 });*/
-
-
-// авторизация приложения для доступа к данным пользователя...
-$router->get('/authorize', 'HomeController@showAuthorizationForm')->middleware('web');
-$router->post('/authorize', 'HomeController@authorizeApp')->middleware('web');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/test_app_requests', 'TestAppRequests@index');
