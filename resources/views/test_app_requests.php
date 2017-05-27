@@ -179,8 +179,10 @@
             dataType: "json",
             contentType: contentType,
             success: function (data) {
+                var dataOut = JSON.stringify(data);
                 //alert("Data from Server" + JSON.stringify(data));
-                console.log(JSON.stringify(data));
+                $('#response0').text(data);
+                $('#response').text(dataOut);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert("You can not send Cross Domain AJAX requests: " + errorThrown);
@@ -227,8 +229,10 @@
             dataType: "json",
             contentType: contentType,
             success: function (data) {
+                var dataOut = JSON.stringify(data);
                 //alert("Data from Server" + JSON.stringify(data));
-                console.log(JSON.stringify(data));
+                console.log(dataOut);
+                $('#response').text(dataOut);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert("You can not send Cross Domain AJAX requests: " + errorThrown);
@@ -236,6 +240,10 @@
         });
     })
 </script>
+
+<br>
+<br>
+<div id="response"></div>
 
 </body>
 </html>
