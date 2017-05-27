@@ -111,7 +111,9 @@ class ClientsController extends IndexController
     {
         $client->update($request->all());
 
-        return redirect()->route('admin.clients.index', [$client])->withSuccess('Client updated.');
+        return redirect()
+            ->route('admin.clients.index', [$client])
+            ->withSuccess('Client updated.');
     }
 
     /**
@@ -135,6 +137,8 @@ class ClientsController extends IndexController
     {
         $client->delete();
 
-        return redirect()->route('admin.clients.index')->withSuccess('Client deleted.');
+        return redirect()
+            ->route('admin.clients.index')
+            ->withSuccess('Client deleted.');
     }
 }

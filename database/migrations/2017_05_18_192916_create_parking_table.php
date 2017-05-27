@@ -17,7 +17,6 @@ class CreateParkingTable extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned()->default(1);
             $table->integer('tradecentre_id')->unsigned()->default(1);
-            //$table->integer('parking_price_id')->unsigned()->default(1);
             $table->dateTime('check_in_time');
             $table->dateTime('check_out_time');
             $table->boolean('on_parking')->default(0);
@@ -27,7 +26,6 @@ class CreateParkingTable extends Migration
 
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('tradecentre_id')->references('id')->on('tradecentres');
-            //$table->foreign('parking_price_id')->references('id')->on('parking_prices');
         });
 
 

@@ -53,10 +53,8 @@ class HomeController extends ApiController
      * @param Request $request
      * @return string
      */
-    public
-    function checkInTime(
-        Request $request
-    ) {
+    public function checkInTime(Request $request)
+    {
         $data = $request->input('main');
 
         // Transform
@@ -70,12 +68,11 @@ class HomeController extends ApiController
 
         if (!$validator->fails()) {
             $objParking = Parking::create([
-                'client_id'        => $data['client_id'],
-                //'parking_price_id' => 2,
-                'check_in_time'    => $check_in_time,
-                'check_out_time'   => $check_in_time,
-                'on_parking'       => 1,
-                'cost'             => 0,
+                'client_id'      => $data['client_id'],
+                'check_in_time'  => $check_in_time,
+                'check_out_time' => $check_in_time,
+                'on_parking'     => 1,
+                'cost'           => 0,
             ]);
 
 //            $obj = Parking::where('id', $objParking->id)
@@ -98,10 +95,8 @@ class HomeController extends ApiController
      * @param Request $request
      * @return string
      */
-    public
-    function checkOutTime(
-        Request $request
-    ) {
+    public function checkOutTime(Request $request)
+    {
         $data = $request->input('main');
 
         // Transform
@@ -118,10 +113,9 @@ class HomeController extends ApiController
                 ->where('on_parking', 1)
                 ->where('client_id', $data['client_id'])
                 ->update([
-                        //'parking_price_id' => 2,
-                        'check_out_time'   => $check_out_time,
-                        'on_parking'       => 0,
-                        'cost'             => 0,
+                        'check_out_time' => $check_out_time,
+                        'on_parking'     => 0,
+                        'cost'           => 0,
                     ]
                 );
         }

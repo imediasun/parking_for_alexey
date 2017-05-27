@@ -43,7 +43,6 @@ class ParkingController extends ApiController
 //
 //        DB::table('parking')->insert([
 //            'client_id'        => $data['client_id'],
-//            'parking_price_id' => $data['parking_price_id'],
 //            'check_in_time'    => $data['check_in_time'],
 //            'check_out_time'   => $data['check_out_time'],
 //        ]);
