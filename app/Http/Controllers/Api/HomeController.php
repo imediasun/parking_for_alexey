@@ -158,10 +158,10 @@ class HomeController extends ApiController
                 'title'             => $arrAds[0]['title'],
                 'short_description' => $arrAds[0]['short_description'],
                 'large_description' => $arrAds[0]['large_description'],
-                'image_small'       => '/photos/' . $arrAds[0]['image_small'],
-                'image_medium'      => '/photos/' . $arrAds[0]['image_medium'],
-                'image_large'       => '/photos/' . $arrAds[0]['image_large'],
-                'thumbnail'         => '/photos/' . $arrAds[0]['thumbnail'],
+                'image_small'       => env('APP_URL') . '/photos/' . $arrAds[0]['image_small'],
+                'image_medium'      => env('APP_URL') . '/photos/' . $arrAds[0]['image_medium'],
+                'image_large'       => env('APP_URL') . '/photos/' . $arrAds[0]['image_large'],
+                'thumbnail'         => env('APP_URL') . '/photos/' . $arrAds[0]['thumbnail'],
             ];
 
             // Add to parking_adv pivot table
@@ -219,10 +219,10 @@ class HomeController extends ApiController
                     'title'             => $arrAds[0]['title'],
                     'short_description' => $arrAds[0]['short_description'],
                     'large_description' => $arrAds[0]['large_description'],
-                    'image_small'       => '/photos/' . $arrAds[0]['image_small'],
-                    'image_medium'      => '/photos/' . $arrAds[0]['image_medium'],
-                    'image_large'       => '/photos/' . $arrAds[0]['image_large'],
-                    'thumbnail'         => '/photos/' . $arrAds[0]['thumbnail'],
+                    'image_small'       => env('APP_URL') . '/photos/' . $arrAds[0]['image_small'],
+                    'image_medium'      => env('APP_URL') . '/photos/' . $arrAds[0]['image_medium'],
+                    'image_large'       => env('APP_URL') . '/photos/' . $arrAds[0]['image_large'],
+                    'thumbnail'         => env('APP_URL') . '/photos/' . $arrAds[0]['thumbnail'],
                 ];
 
                 // Add to parking_adv pivot table
