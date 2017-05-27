@@ -181,7 +181,7 @@
             success: function (data) {
                 var dataOut = JSON.stringify(data);
                 //alert("Data from Server" + JSON.stringify(data));
-                $('#response0').text(data);
+                console.log(dataOut);
                 $('#response').text(dataOut);
             },
             error: function (jqXHR, textStatus, errorThrown) {

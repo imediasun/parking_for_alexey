@@ -140,7 +140,7 @@ class HomeController extends ApiController
         ]);
 
         if (!$validator->fails()) {
-            Parking::create([
+            $p = Parking::create([
                 'client_id'      => array_get($data, 'client_id'),
                 'tradecentre_id' => array_get($data, 'tradecentre_id'),
                 'check_in_time'  => $check_in_time,
@@ -148,6 +148,7 @@ class HomeController extends ApiController
                 'on_parking'     => 1,
                 'cost'           => 0,
             ]);
+            //$p->ads()->attach($p->id);
 
             // TODO: move to model
             // Get Random Ad

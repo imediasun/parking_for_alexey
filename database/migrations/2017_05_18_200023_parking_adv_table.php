@@ -21,7 +21,7 @@ class ParkingAdvTable extends Migration
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
             $table->foreign('adv_id')->references('id')->on('adv')->onDelete('cascade');
-            $table->foreign('parking_id')->references('id')->on('parking');
+            $table->foreign('parking_id')->references('id')->on('parking')->onDelete('cascade');
         });
     }
 
