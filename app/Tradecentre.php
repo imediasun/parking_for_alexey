@@ -4,13 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Tradecentre
+ * @package App
+ */
 class Tradecentre extends Model
 {
-    //
-    public function users(){
-        return $this->belongsTo('App\User','user_id');
+    /**
+     * User of tradecentre
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * Prices of Parking
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function parkingPrices()
     {
         return $this->hasMany(ParkingPrice::class);

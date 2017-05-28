@@ -83,6 +83,16 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['web', 'au
     // TODO: create, edit, validation ad
     Route::resource('ads', 'Admin\AdsController');
     Route::get('ads/{ads}/delete', ['as' => 'ads.delete', 'uses' => 'Admin\AdsController@delete']);
+
+    // Statistics
+    Route::get(
+        'statistics/tradecentres',
+        ['as' => 'statistics.tradecentres', 'uses' => 'Admin\StatisticsController@tradecentres']
+    );
+    Route::get(
+        'statistics/tradecentres/{tradecentre}',
+        ['as' => 'statistics.tradecentre', 'uses' => 'Admin\StatisticsController@tradecentre']
+    );
 });
 
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');

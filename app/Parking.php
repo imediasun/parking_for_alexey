@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Parking
+ * @package App
+ */
 class Parking extends Model
 {
     /**
@@ -24,6 +28,16 @@ class Parking extends Model
         'on_parking',
         'cost',
     ];
+
+    /**
+     * Client of Parking
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
 
     /**
      * Ads of Parking
