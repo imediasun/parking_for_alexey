@@ -12,6 +12,8 @@ class ParkingTableSeeder extends Seeder
     public function run()
     {
         DB::table('parking')->insert([
+
+            // Client 1
             [
                 'client_id'        => 1,
                 'tradecentre_id'   => 1,
@@ -28,6 +30,8 @@ class ParkingTableSeeder extends Seeder
                 'on_parking'       => 0,
                 'cost'             => 4,
             ],
+
+            // Client 2
             [
                 'client_id'        => 2,
                 'tradecentre_id'   => 2,
@@ -45,10 +49,26 @@ class ParkingTableSeeder extends Seeder
                 'cost'             => 1,
             ],
             [
+                'client_id'        => 1,
+                'tradecentre_id'   => 2,
+                'check_in_time'    => '2017-05-23 10:00:00',
+                'check_out_time'   => '2017-05-23 10:55:00', // 1 hour (0h 55m) // 1h - $1
+                'on_parking'       => 0,
+                'cost'             => 1,
+            ],
+            [
                 'client_id'        => 2,
                 'tradecentre_id'   => 2,
                 'check_in_time'    => '2017-05-24 13:00:00',
-                'check_out_time'   => '2017-05-24 17:45:00', // 4 hour (4h 45m) // 1h - $1
+                'check_out_time'   => '2017-05-24 17:45:00', // 4 hour (4h 45m) // 4h - $5
+                'on_parking'       => 0,
+                'cost'             => 5,
+            ],
+            [
+                'client_id'        => 1,
+                'tradecentre_id'   => 2,
+                'check_in_time'    => '2017-05-23 16:00:00',
+                'check_out_time'   => '2017-05-23 20:10:00', // 4 hour (4h 10m) // 4h - $5
                 'on_parking'       => 0,
                 'cost'             => 5,
             ],
