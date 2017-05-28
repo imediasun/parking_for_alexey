@@ -104,9 +104,9 @@ class AdminCategoriesTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 15,
-                'name'      => 'Payment of parking',
+                'name'      => 'Tradecentres',
                 'icon'      => 'fa-thumbs-o-up',
-                'link'      => '/admin/statistics',
+                'link'      => '/admin/statistics/tradecentres',
             ],
 
         ]);
