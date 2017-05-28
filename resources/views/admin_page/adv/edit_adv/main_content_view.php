@@ -70,6 +70,18 @@
                                             <div class="tab-content b-0 m-b-0">
                                                 <div class="tab-pane m-t-10 fade" id="tab1">
                                                     <div class="row">
+
+                                                        <div class="form-group">
+                                                            <label for="tradecentre_id" class="col-md-2 control-label">Trade Centre</label>
+                                                            <div class="col-md-10">
+                                                                <select id="rubric_id" class="form-control" name="rubric_id">
+                                                                    <?php foreach ($tradecentres as $tradecentre): ?>
+                                                                        <option value="<?= $tradecentre->id ?>"><?= $tradecentre->name ?></option>
+                                                                    <?php endforeach ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Tile</label>
                                                             <div class="col-md-10">

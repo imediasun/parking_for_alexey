@@ -17,6 +17,7 @@ class Adv extends Model
      * @var array  fields to save
      */
     protected $fillable = [
+        'tradecentre_id',
         'title',
         'short_description',
         'large_description',

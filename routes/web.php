@@ -20,6 +20,8 @@ Route::post('/MainController/ajax_usersessions', 'MainController@ajax_usersessio
 
 Route::get('/tradecentre_added', function () { return view('msg/tradecentre_added'); });
 Route::get('/tradecentre_edited', function () { return view('msg/tradecentre_edited'); });
+Route::get('/ad_added', function () { return view('msg/ad_added'); });
+Route::get('/ad_edited', function () { return view('msg/ad_edited'); });
 
 Route::get('/good_added', function () { return view('partner'); })->name('partner_added');
 Route::get('/not_yours', function () { return view('not_yours'); })->name('not_yours');
