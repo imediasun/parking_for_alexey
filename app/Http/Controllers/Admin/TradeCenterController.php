@@ -42,6 +42,10 @@ class TradeCenterController extends IndexController
         return $this->renderOutput($data);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function add_center(Request $request)
     {
         dump($request->input());
@@ -79,56 +83,52 @@ class TradeCenterController extends IndexController
             DB::table('role_user')->insert($role_user_set);
 
             // TODO: why do not redirect by route name?
-            return redirect('good_added');
-            //return redirect()->route('good_added');
+            return redirect('tradecentre_added');
         } else {
-            return redirect()->route('not_confirmed');
+            return redirect('not_confirmed');
         }
     }
 
-
+    /**
+     * @param $operation
+     * @return string
+     */
     public function edit($operation)
     {
-        //dd($operation);
-
         $this->user = Auth::user();
+
         if (Gate::denies('VIEW_ADMIN')) {
             abort(403);
         }
 
         $data['content']['operation'] = $operation;
-        $this->title = 'Панель администратора';
-        $data['nav']['menu'] = parent::menu();
-
         $data['content']['tradecentres'] = Tradecentre::orderBy('created_at', 'desc')
             ->orderBy('updated_at', 'desc')
             ->get();
 
+
+        $data['nav']['menu'] = parent::menu();
         $this->template = 'admin_page/trade_center/view_trade_centres';
-        $data['title'] = "Choose Tradecenter";
-        $data['keywords'] = "Parking platform";
-        $data['description'] = "Parking platform";
 
         return $this->renderOutput($data);
     }
 
     public function edit_center($id)
     {
-        //dd($id);
-
         $this->user = Auth::user();
+
         if (Gate::denies('VIEW_ADMIN')) {
             abort(403);
         }
-        $this->title = 'Панель администратора';
-        $data['nav']['menu'] = parent::menu();
 
-        $data['content']['tradecentre'] = Tradecentre::where('id', $id)->get();
-        $data['content']['user'] = $data['content']['tradecentre'][0]->users;
+        $data['content']['tradecentre'] = Tradecentre::where('id', $id)->first();
+        $data['content']['user'] = $data['content']['tradecentre']->user;
+
+        //dump($data['content']['tradecentre']->id);
+        //dump($data['content']['user']->id);
+
+        $data['nav']['menu'] = parent::menu();
         $this->template = 'admin_page/trade_center/edit_trade_center';
-        $data['title'] = "Edit Tradecenter";
-        $data['keywords'] = "Parking platform";
-        $data['description'] = "Parking platform";
 
         return $this->renderOutput($data);
     }
@@ -164,11 +164,14 @@ class TradeCenterController extends IndexController
                 'thumbnail' => $main_image[0]['image_thumbnail'],
                 'description' => $request->input('note')
             ];
-            DB::table('tradecentres')->where('id', $request->input('id_tradecentre'))->update($tradecentre_set);
-            /*DB::table('role_user')->insert($role_user_set);*/
-            return redirect()->route('good_added');
+
+            DB::table('tradecentres')
+                ->where('id', $request->input('id_tradecentre'))
+                ->update($tradecentre_set);
+
+            return redirect('tradecentre_edited');
         } else {
-            return redirect()->route('not_confirmed');
+            return redirect('not_confirmed');
         }
     }
 

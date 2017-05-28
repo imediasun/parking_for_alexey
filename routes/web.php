@@ -18,17 +18,12 @@ Route::get('/home', 'HomeController@index');
 Route::get('/category/{id}', 'CategoryController@index')->where('id', '[0-9]+');
 Route::post('/MainController/ajax_usersessions', 'MainController@ajax_usersessions');
 
-Route::get('/good_added', function () {
-    return view('good');
-})->name('good_added');
+Route::get('/tradecentre_added', function () { return view('msg/tradecentre_added'); });
+Route::get('/tradecentre_edited', function () { return view('msg/tradecentre_edited'); });
 
-Route::get('/good_added', function () {
-    return view('partner');
-})->name('partner_added');
+Route::get('/good_added', function () { return view('partner'); })->name('partner_added');
+Route::get('/not_yours', function () { return view('not_yours'); })->name('not_yours');
 
-Route::get('/not_yours', function () {
-    return view('not_yours');
-})->name('not_yours');
 
 Route::get('/logout', ['uses' => 'Admin\IndexController@index', 'as' => 'adminIndex']);
 
