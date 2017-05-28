@@ -14,6 +14,12 @@ class ParkingPricesTableSeeder extends Seeder
         DB::table('parking_prices')->insert([
             [
                 'tradecentre_id' => 1,
+                'day'            => 0,
+                'time'           => 1,
+                'price'          => 10,
+            ],
+            [
+                'tradecentre_id' => 1,
                 'day'            => 1,
                 'time'           => 1,
                 'price'          => 1,

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Adv;
 use App\Client;
 use App\Parking;
+use App\ParkingPrice;
+use App\Tradecentre;
 use DB;
 
 use Illuminate\Http\Request;
@@ -200,13 +202,28 @@ class HomeController extends ApiController
         ]);
 
         if (!$validator->fails()) {
+            $objParking = Parking::where('on_parking', 1)
+                ->where('client_id', array_get($data, 'client_id'))
+                ->where('tradecentre_id', array_get($data, 'tradecentre_id'))
+                ->first();
+
+            $day = date('w', strtotime($objParking->check_in_time));
+            $time1 = strtotime($objParking->check_in_time);
+            $time2 = strtotime($check_out_time);
+            $time = ($time2 - $time1) / 60 / 60;
+
+            $objParkingPrice = ParkingPrice::where('tradecentre_id', array_get($data, 'tradecentre_id'))
+                ->where('day', $day)
+                ->where('time', '=', ceil($time))
+                ->first();
+
             $isUpdated = Parking::where('on_parking', 1)
                 ->where('client_id', array_get($data, 'client_id'))
                 ->where('tradecentre_id', array_get($data, 'tradecentre_id'))
                 ->update([
                     'check_out_time' => $check_out_time,
                     'on_parking'     => 0,
-                    'cost'           => 0,
+                    'cost'           => is_object($objParkingPrice) ? $objParkingPrice->price : 0,
                 ]);
 
             if ($isUpdated) {
@@ -226,7 +243,7 @@ class HomeController extends ApiController
                 ];
 
                 // Add to parking_adv pivot table
-                //$objParking->ads()->attach($arrAds[0]['id']);
+                $objParking->ads()->attach($arrAds[0]['id']);
 
                 return json_encode($response);
             } else {
