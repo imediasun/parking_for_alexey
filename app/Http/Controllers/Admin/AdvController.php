@@ -61,6 +61,7 @@ class AdvController extends IndexController
     {
         $mainImage = session('file_name_main_image');
         $data = [
+            'tradecentre_id'    => $request->input('tradecentre_id'),
             'title'             => $request->input('title'),
             'short_description' => $request->input('short_description'),
             'large_description' => $request->input('large_description'),
@@ -138,6 +139,7 @@ class AdvController extends IndexController
     {
         $mainImage = session('file_name_main_image');
         $data = [
+            'tradecentre_id'    => $request->input('tradecentre_id'),
             'title'             => $request->input('title'),
             'short_description' => $request->input('short_description'),
             'large_description' => $request->input('large_description'),

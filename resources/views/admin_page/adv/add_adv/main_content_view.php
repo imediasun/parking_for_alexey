@@ -71,7 +71,7 @@
                                                         <div class="form-group">
                                                             <label for="tradecentre_id" class="col-md-2 control-label">Trade Centre</label>
                                                             <div class="col-md-10">
-                                                                <select id="rubric_id" class="form-control" name="rubric_id">
+                                                                <select id="tradecentre_id" class="form-control" name="tradecentre_id">
                                                                     <?php foreach ($tradecentres as $tradecentre): ?>
                                                                         <option value="<?= $tradecentre->id ?>"><?= $tradecentre->name ?></option>
                                                                     <?php endforeach ?>
