@@ -96,6 +96,18 @@ class AdminCategoriesTableSeeder extends Seeder
                 'icon'      => 'fa-envelope',
                 'link'      => '/admin/clients',
             ],
+            [
+                'parent_id' => 0,
+                'name'      => 'Statistics',
+                'icon'      => 'fa-thumbs-o-up',
+                'link'      => '/admin/statistics',
+            ],
+            [
+                'parent_id' => 15,
+                'name'      => 'Payment of parking',
+                'icon'      => 'fa-thumbs-o-up',
+                'link'      => '/admin/statistics',
+            ],
 
         ]);
 
