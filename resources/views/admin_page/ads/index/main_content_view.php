@@ -36,13 +36,11 @@
                                     <td><?= $ad->tradecentre->name ?></td>
                                     <td><?= $ad->created_at ?></td>
                                     <td>
-                                        <!--
                                         <a class="btn btn-primary btn-icon fa fa-edit"
-                                           href="<?//= route('admin.ads.edit', ['id' => $ad->id]) ?>"
+                                           href="/admin/edit_adv/<?= $ad->id ?>"
                                            data-toggle="tooltip"
                                            data-original-title="Edit"
                                         ></a>
-                                        -->
                                         <a class="delete_btn btn btn-danger btn-icon fa fa-times"
                                            href="<?= route('admin.ads.delete', ['id' => $ad->id]) ?>"
                                            data-toggle="tooltip"
